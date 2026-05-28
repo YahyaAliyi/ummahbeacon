@@ -1,0 +1,34 @@
+# Ummah Beacon SEO and Security Configuration
+
+User-agent: *
+Allow: /
+Disallow: /.git
+Disallow: /.github
+Disallow: /node_modules
+Disallow: /vendor
+Disallow: /*?*sort=
+Disallow: /search
+Disallow: /admin
+Disallow: /*?*print=
+Disallow: /*?*debug=
+
+# Specific crawlers
+User-agent: AdsBot-Google
+Allow: /
+
+User-agent: MJ12bot
+Crawl-delay: 1
+Allow: /
+
+User-agent: SemrushBot
+Disallow: /
+
+User-agent: DotBot
+Disallow: /
+
+# Sitemap
+Sitemap: https://www.ummahbeacon.com/sitemap.xml
+
+# Crawl delay
+Crawl-delay: 1
+Request-rate: 1/1s

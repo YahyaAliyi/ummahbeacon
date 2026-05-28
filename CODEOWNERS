@@ -1,0 +1,15 @@
+# Ummah Beacon Code Owners
+# This file defines who should review changes to various parts of the codebase
+
+# All files require Yahya's review
+* @YahyaAliyi
+
+# Security files require security review
+SECURITY.md @YahyaAliyi
+_config.yml @YahyaAliyi
+.htaccess @YahyaAliyi
+robots.txt @YahyaAliyi
+index.html @YahyaAliyi
+
+# Contributing guidelines
+CONTRIBUTING.md @YahyaAliyi

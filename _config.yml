@@ -1,0 +1,40 @@
+# Jekyll Configuration with Security Headers
+# Ummah Beacon Website
+
+theme: jekyll-theme-minimal
+title: Ummah Beacon
+description: Light for the Muslim Ummah
+url: https://www.ummahbeacon.com
+
+# Build settings
+markdown: kramdown
+encode_output: utf-8
+
+# Security Headers
+headers:
+  X-Frame-Options: SAMEORIGIN
+  X-Content-Type-Options: nosniff
+  X-XSS-Protection: "1; mode=block"
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: "accelerometer=(), camera=(), geolocation=(), gyroscope=(), magnetometer=(), microphone=(), payment=(), usb=()"
+  Content-Security-Policy: "default-src 'self'; script-src 'self' 'unsafe-inline' www.google-analytics.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https: www.google-analytics.com; font-src 'self' data:; connect-src 'self' www.google-analytics.com; media-src 'self'; frame-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'"
+  Strict-Transport-Security: "max-age=31536000; includeSubDomains; preload"
+
+# Exclude sensitive files
+exclude:
+  - .git
+  - .gitignore
+  - SECURITY.md
+  - .env
+  - .env.local
+  - node_modules
+  - /vendor
+  - /tests
+  - /docs
+  - CODEOWNERS
+
+# Collections
+collections:
+  pages:
+    output: true
+    permalink: /:path/
