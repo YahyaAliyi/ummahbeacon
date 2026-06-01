@@ -183,66 +183,143 @@
   .btn-gold{display:inline-block;background:gold;color:#333;padding:12px 28px;border-radius:6px;font-weight:700;margin-top:16px;transition:background .2s;}
   .btn-gold:hover{background:#EF9F27;}
 
-  /* MOBILE */
-  @media(max-width:600px){
-    header h1{font-size:1.8rem;}
-    nav ul li a{font-size:.8rem;padding:5px 8px;}
+  /* ============================================
+     MOBILE RESPONSIVE — Full Optimization
+     ============================================ */
+  @media(max-width:768px){
+
+    /* Hero Banner */
+    .motif-arch div[style*="display:flex;align-items:center"]{
+      flex-direction:column;
+      text-align:center;
+    }
+    .motif-arch div[style*="text-align:left"]{
+      text-align:center !important;
+    }
+
+    /* Navigation */
+    nav ul{gap:4px;}
+    nav ul li a{font-size:.78rem;padding:5px 8px;}
+
+    /* Sections */
+    section{padding:36px 20px !important;}
+
+    /* Headings */
+    h1{font-size:1.6rem !important;}
+    h2{font-size:1.3rem !important;}
+    h3{font-size:1rem !important;}
+
+    /* Ebook cards grid */
+    div[style*="grid-template-columns:repeat(auto-fit,minmax(220px"]{
+      grid-template-columns:1fr !important;
+    }
+
+    /* Ebook feature badges */
+    div[style*="display:flex;gap:12px;justify-content:center"]{
+      gap:8px !important;
+    }
+
+    /* CTA buttons stack */
+    div[style*="display:flex;gap:10px;justify-content:center"]{
+      flex-direction:column;
+      align-items:center;
+    }
+    div[style*="display:flex;gap:14px;justify-content:center"]{
+      flex-direction:column;
+      align-items:center;
+    }
+
+    /* Contact payment cards */
+    div[style*="display:grid"]{
+      grid-template-columns:1fr !important;
+    }
+
+    /* Subscription form */
+    div[style*="display:flex; gap:10px; max-width:460px"]{
+      flex-direction:column;
+    }
+    div[style*="display:flex; gap:10px; max-width:460px"] input{
+      width:100% !important;
+    }
+    div[style*="display:flex; gap:10px; max-width:460px"] button{
+      width:100% !important;
+    }
+
+    /* Footer */
+    footer{padding:24px 16px;}
+    footer p{font-size:.82rem;}
+
+    /* Buttons full width on mobile */
+    a[style*="padding:14px"]{
+      display:block !important;
+      width:100%;
+      max-width:300px;
+      margin:0 auto;
+      text-align:center;
+    }
+  }
+
+  @media(max-width:400px){
+    nav ul li a{font-size:.72rem;padding:4px 6px;}
+    div[style*="font-family:'Amiri'"]{font-size:1.3rem !important;}
+    header h1{font-size:1.5rem !important;}
+  }
+
+  /* Touch friendly — all clickable elements */
+  a, button{
+    min-height:44px;
+    touch-action:manipulation;
+    -webkit-tap-highlight-color:rgba(0,0,0,.1);
   }
 </style>
 </head>
 <body>
 
 <!-- BISMILLAH HERO BANNER -->
-<div style="background:linear-gradient(135deg,#021f17 0%,#043d2e 50%,#0F6E56 100%);color:#fff;text-align:center;padding:60px 20px 50px;position:relative;overflow:hidden;">
+<div class="motif-arch" style="background:linear-gradient(135deg,#021f17 0%,#043d2e 50%,#0F6E56 100%);color:#fff;text-align:center;padding:36px 20px 32px;position:relative;overflow:hidden;">
 
   <!-- Decorative circles -->
-  <div style="position:absolute;top:-60px;right:-60px;width:280px;height:280px;border-radius:50%;background:rgba(255,255,255,.03);"></div>
-  <div style="position:absolute;bottom:-80px;left:-80px;width:360px;height:360px;border-radius:50%;background:rgba(255,255,255,.02);"></div>
+  <div style="position:absolute;top:-40px;right:-40px;width:180px;height:180px;border-radius:50%;background:rgba(255,255,255,.03);"></div>
+  <div style="position:absolute;bottom:-50px;left:-50px;width:220px;height:220px;border-radius:50%;background:rgba(255,255,255,.02);"></div>
 
   <!-- Bismillah Arabic -->
-  <div style="font-family:'Amiri',serif;font-size:clamp(1.8rem,5vw,3rem);color:#FAC775;direction:rtl;line-height:1.8;margin-bottom:10px;font-weight:700;">
+  <div style="font-family:'Amiri',serif;font-size:clamp(1.4rem,3.5vw,2.2rem);color:#FAC775;direction:rtl;line-height:1.8;margin-bottom:4px;font-weight:700;">
     بِسْمِ اللهِ الرَّحْمٰنِ الرَّحِيْمِ
   </div>
 
-  <!-- Transliteration -->
-  <div style="font-family:'Lato',sans-serif;font-size:.95rem;color:#9FE1CB;letter-spacing:.12em;margin-bottom:6px;font-weight:300;">
-    Bismillāhi r-Raḥmāni r-Raḥīm
-  </div>
-
   <!-- Translation -->
-  <div style="font-family:'Lato',sans-serif;font-size:.88rem;color:rgba(255,255,255,.5);font-style:italic;margin-bottom:36px;letter-spacing:.04em;">
+  <div style="font-family:'Lato',sans-serif;font-size:.82rem;color:rgba(255,255,255,.45);font-style:italic;margin-bottom:18px;letter-spacing:.04em;">
     "In the name of Allah, the Most Gracious, the Most Merciful"
   </div>
 
   <!-- Divider -->
-  <div style="width:60px;height:2px;background:#FAC775;margin:0 auto 28px;"></div>
+  <div style="width:40px;height:2px;background:#FAC775;margin:0 auto 16px;"></div>
 
-  <!-- Site Title -->
-  <div style="font-family:'Playfair Display',serif;font-size:clamp(2rem,5vw,3.4rem);font-weight:800;color:#fff;margin-bottom:10px;letter-spacing:.02em;">
-    Ummah <span style="color:#FAC775;">Beacon</span>
-  </div>
-
-  <!-- Tagline -->
-  <div style="font-family:'Lato',sans-serif;font-size:1.1rem;font-weight:300;color:#9FE1CB;letter-spacing:.1em;margin-bottom:32px;">
-    🌙 Light for the Muslim Ummah
-  </div>
-
-  <!-- Founder photo -->
-  <img src="yahya.jpg" alt="Yahya Aliyyi"
-    style="width:100px;height:100px;border-radius:50%;object-fit:cover;object-position:top;border:3px solid rgba(255,255,255,.3);display:block;margin:0 auto 12px;"/>
-  <div style="font-family:'Playfair Display',serif;font-size:1rem;font-weight:700;color:#FAC775;">Yahya Aliyyi</div>
-  <div style="font-family:'Lato',sans-serif;font-size:.85rem;color:#9FE1CB;margin-bottom:36px;">
-    Islamic Coach · Author · Former Zone Administrator · Jimma, Ethiopia 🇪🇹
+  <!-- Site Title + Photo in one row -->
+  <div style="display:flex;align-items:center;justify-content:center;gap:16px;flex-wrap:wrap;margin-bottom:16px;">
+    <img src="yahya.jpg" alt="Yahya Aliyyi"
+      style="width:64px;height:64px;border-radius:50%;object-fit:cover;object-position:top;border:2px solid rgba(255,255,255,.3);flex-shrink:0;"/>
+    <div style="text-align:left;">
+      <div style="font-family:'Playfair Display',serif;font-size:clamp(1.4rem,3vw,2rem);font-weight:800;color:#fff;line-height:1.2;">
+        Ummah <span style="color:#FAC775;">Beacon</span>
+      </div>
+      <div style="font-family:'Lato',sans-serif;font-size:.85rem;font-weight:300;color:#9FE1CB;letter-spacing:.06em;">
+        🌙 Light for the Muslim Ummah
+      </div>
+      <div style="font-family:'Lato',sans-serif;font-size:.78rem;color:rgba(255,255,255,.45);margin-top:2px;">
+        Yahya Aliyyi · Islamic Coach · Jimma, Ethiopia 🇪🇹
+      </div>
+    </div>
   </div>
 
   <!-- CTA Buttons -->
-  <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;">
+  <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap;">
     <a href="#resources"
-       style="background:#FAC775;color:#412402;padding:13px 28px;border-radius:7px;font-family:'Lato',sans-serif;font-weight:700;font-size:1rem;">
+       style="background:#FAC775;color:#412402;padding:10px 22px;border-radius:6px;font-family:'Lato',sans-serif;font-weight:700;font-size:.9rem;">
       📖 Explore Resources
     </a>
     <a href="#coaching"
-       style="border:2px solid rgba(255,255,255,.4);color:#fff;padding:13px 28px;border-radius:7px;font-family:'Lato',sans-serif;font-weight:600;font-size:1rem;">
+       style="border:2px solid rgba(255,255,255,.35);color:#fff;padding:10px 22px;border-radius:6px;font-family:'Lato',sans-serif;font-weight:600;font-size:.9rem;">
       🤝 Book Coaching
     </a>
   </div>
@@ -335,19 +412,33 @@
   </ul>
 </section>
 
-<!-- EBOOK -->
-<section id="ebook" style="background:linear-gradient(135deg,#043d2e,#0F6E56); padding:50px 40px; text-align:center; color:#fff;">
-  <h2 style="color:#FAC775; font-size:1.8rem; margin-bottom:16px;">📖 Our E-Book</h2>
-  <p style="font-size:18px; line-height:1.6; max-width:600px; margin:0 auto 24px; color:#c5e8df;">
-    Discover our guide to Islamic leadership and spiritual prosperity. 
-    This e-book shares practical steps and timeless principles rooted in 
-    Quran and Sunnah for uplifting the Ummah.
-  </p>
-  <a href="https://drive.google.com/file/d/1uaJmqEWuMY8sYjGMgkqDDcuRUiE_w41v/view?usp=drive_link" 
-     target="_blank" 
-     style="display:inline-block;background:#FAC775;color:#412402;padding:14px 32px;border-radius:7px;font-weight:700;font-size:1rem;">
-    📖 Download Free PDF
-  </a>
+<!-- EBOOK — Standalone Section -->
+<section id="ebook" style="background:linear-gradient(135deg,#043d2e,#0F6E56);padding:60px 40px;text-align:center;color:#fff;position:relative;overflow:hidden;">
+  <div style="position:absolute;top:-40px;right:-40px;width:200px;height:200px;border-radius:50%;background:rgba(255,255,255,.04);"></div>
+  <div style="position:absolute;bottom:-40px;left:-40px;width:200px;height:200px;border-radius:50%;background:rgba(255,255,255,.03);"></div>
+  <div style="position:relative;z-index:1;max-width:650px;margin:auto;">
+    <div style="font-size:.75rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#9FE1CB;margin-bottom:12px;">First Publication</div>
+    <h2 style="font-family:'Playfair Display',serif;font-size:clamp(1.5rem,3vw,2.2rem);color:#FAC775;margin-bottom:14px;">📖 Amanah in Leadership</h2>
+    <div style="width:40px;height:2px;background:#FAC775;margin:0 auto 20px;"></div>
+    <p style="font-family:'Lato',sans-serif;font-size:1rem;line-height:1.75;color:#c5e8df;margin-bottom:10px;">
+      The Islamic Guide to Trust, Integrity & Servant Leadership — written in <strong style="color:#fff;">English & Amharic</strong> with Quranic verses and Hadiths in Arabic.
+    </p>
+    <p style="font-family:'Lato',sans-serif;font-size:.88rem;color:rgba(255,255,255,.5);margin-bottom:28px;">
+      By Yahya Aliyyi · Ummah Beacon · First Edition 2024
+    </p>
+    <!-- Features -->
+    <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-bottom:28px;">
+      <span style="background:rgba(255,255,255,.1);color:#9FE1CB;padding:6px 14px;border-radius:20px;font-size:.82rem;">6 Chapters</span>
+      <span style="background:rgba(255,255,255,.1);color:#9FE1CB;padding:6px 14px;border-radius:20px;font-size:.82rem;">Arabic Quran & Hadith</span>
+      <span style="background:rgba(255,255,255,.1);color:#9FE1CB;padding:6px 14px;border-radius:20px;font-size:.82rem;">English & Amharic</span>
+      <span style="background:rgba(255,255,255,.1);color:#9FE1CB;padding:6px 14px;border-radius:20px;font-size:.82rem;">Free PDF</span>
+    </div>
+    <a href="https://drive.google.com/file/d/1uaJmqEWuMY8sYjGMgkqDDcuRUiE_w41v/view?usp=drive_link"
+       target="_blank"
+       style="display:inline-block;background:#FAC775;color:#412402;padding:14px 36px;border-radius:7px;font-family:'Lato',sans-serif;font-weight:700;font-size:1rem;letter-spacing:.02em;">
+      📥 Download Free PDF
+    </a>
+  </div>
 </section>
 
 <!-- DIGITAL RESOURCES / EBOOKS -->
