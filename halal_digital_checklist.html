@@ -1,0 +1,729 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>The Halal Digital Launch Checklist – Ummah Beacon</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400;700&family=Amiri:ital,wght@0,400;0,700;1,400&display=swap');
+
+  :root {
+    --dark-green: #1A472A;
+    --mid-green:  #2E7D52;
+    --light-green:#E8F5E9;
+    --gold:       #D4AF37;
+    --light-gold: #F5E6A3;
+    --white:      #FFFFFF;
+    --off-white:  #FAFAF6;
+    --text:       #1C1C1C;
+    --text-light: #555;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Lato', sans-serif;
+    background: var(--off-white);
+    color: var(--text);
+    line-height: 1.85;
+  }
+
+  /* ── COVER ──────────────────────────────────────── */
+  .cover {
+    background: linear-gradient(160deg, var(--dark-green) 0%, #0B2B40 100%);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 60px 40px;
+    position: relative;
+    overflow: hidden;
+  }
+  .cover::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120' viewBox='0 0 120 120'%3E%3Cpath d='M60 10 L70 40 L100 40 L75 58 L85 88 L60 70 L35 88 L45 58 L20 40 L50 40 Z' fill='none' stroke='%23D4AF37' stroke-width='0.4' opacity='0.15'/%3E%3C/svg%3E") repeat;
+    pointer-events: none;
+  }
+  .cover-moon {
+    font-size: 72px;
+    margin-bottom: 24px;
+    filter: drop-shadow(0 0 18px rgba(212,175,55,0.6));
+  }
+  .cover h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(28px, 5vw, 52px);
+    color: var(--white);
+    line-height: 1.25;
+    max-width: 700px;
+    margin-bottom: 20px;
+    text-shadow: 0 2px 12px rgba(0,0,0,0.4);
+  }
+  .cover-sub {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: clamp(16px, 2.5vw, 24px);
+    color: var(--gold);
+    margin-bottom: 12px;
+  }
+  .cover-root {
+    font-size: clamp(14px, 2vw, 18px);
+    color: var(--light-gold);
+    margin-bottom: 56px;
+    opacity: 0.9;
+  }
+  .cover-geo {
+    width: 160px; height: 4px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    margin: 0 auto 40px;
+  }
+  .cover-author {
+    font-family: 'Lato', sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--gold);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+  .cover-site {
+    font-size: 15px;
+    color: var(--light-gold);
+    margin-top: 8px;
+    opacity: 0.8;
+  }
+
+  /* ── LAYOUT ─────────────────────────────────────── */
+  .container {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 60px 32px;
+  }
+
+  /* ── SECTION DIVIDER ─────────────────────────────── */
+  .divider {
+    border: none;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    margin: 48px 0;
+  }
+
+  /* ── INTRO ───────────────────────────────────────── */
+  .bismillah-block {
+    text-align: center;
+    padding: 32px 24px;
+    margin: 32px 0;
+    background: var(--light-green);
+    border-radius: 12px;
+    border-top: 4px solid var(--gold);
+  }
+  .bismillah-arabic {
+    font-family: 'Amiri', serif;
+    font-size: clamp(26px, 4vw, 40px);
+    color: var(--dark-green);
+    line-height: 1.6;
+    margin-bottom: 10px;
+  }
+  .bismillah-trans {
+    font-style: italic;
+    color: var(--mid-green);
+    font-size: 15px;
+  }
+
+  /* ── PILLAR HEADER ───────────────────────────────── */
+  .pillar-header {
+    background: linear-gradient(135deg, var(--dark-green) 0%, #0B2B40 100%);
+    border-radius: 16px;
+    text-align: center;
+    padding: 40px 32px;
+    margin: 64px 0 32px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 8px 32px rgba(26,71,42,0.25);
+  }
+  .pillar-header::before {
+    content: '☽';
+    position: absolute;
+    top: -20px; right: 20px;
+    font-size: 120px;
+    color: rgba(212,175,55,0.08);
+    pointer-events: none;
+  }
+  .pillar-num {
+    font-family: 'Lato', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 4px;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+  .pillar-arabic {
+    font-family: 'Amiri', serif;
+    font-size: clamp(28px, 5vw, 48px);
+    color: var(--light-gold);
+    line-height: 1.4;
+    margin-bottom: 8px;
+  }
+  .pillar-english {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(16px, 2.5vw, 22px);
+    color: rgba(255,255,255,0.85);
+    font-style: italic;
+  }
+
+  /* ── SUBTITLE ────────────────────────────────────── */
+  .subtitle {
+    font-family: 'Lato', sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--mid-green);
+    border-left: 5px solid var(--gold);
+    padding-left: 16px;
+    margin: 40px 0 16px;
+  }
+
+  /* ── BODY TEXT ───────────────────────────────────── */
+  p.body-text {
+    font-size: 16px;
+    color: var(--text);
+    margin-bottom: 18px;
+    line-height: 1.9;
+  }
+
+  /* ── AYAH BLOCK ──────────────────────────────────── */
+  .ayah-block {
+    background: var(--light-green);
+    border-radius: 12px;
+    padding: 28px 28px 20px;
+    margin: 32px 0;
+    border-right: 5px solid var(--gold);
+  }
+  .ayah-arabic {
+    font-family: 'Amiri', serif;
+    font-size: clamp(22px, 3.5vw, 32px);
+    color: var(--dark-green);
+    text-align: right;
+    line-height: 1.8;
+    margin-bottom: 10px;
+    direction: rtl;
+  }
+  .ayah-ref {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--mid-green);
+    text-align: center;
+    margin-bottom: 8px;
+    letter-spacing: 0.5px;
+  }
+  .ayah-english {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 15px;
+    color: var(--text-light);
+    text-align: center;
+  }
+
+  /* ── HADITH BLOCK ────────────────────────────────── */
+  .hadith-block {
+    border-left: 5px solid var(--gold);
+    background: #FFFDF0;
+    padding: 20px 24px;
+    margin: 24px 0;
+    border-radius: 0 12px 12px 0;
+  }
+  .hadith-text {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 16px;
+    color: var(--text);
+    margin-bottom: 10px;
+    line-height: 1.8;
+  }
+  .hadith-source {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--mid-green);
+  }
+
+  /* ── CHECKLIST ───────────────────────────────────── */
+  .checklist {
+    list-style: none;
+    margin: 20px 0 28px;
+    padding: 0;
+  }
+  .checklist li {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    font-size: 15px;
+    color: var(--text);
+    padding: 10px 16px;
+    margin-bottom: 8px;
+    background: var(--white);
+    border-radius: 8px;
+    border: 1px solid #E0E0D0;
+    transition: background 0.2s;
+  }
+  .checklist li:hover { background: var(--light-green); }
+  .check-box {
+    width: 22px; height: 22px;
+    border: 2px solid var(--gold);
+    border-radius: 5px;
+    flex-shrink: 0;
+    margin-top: 1px;
+    display: flex; align-items: center; justify-content: center;
+    cursor: pointer;
+    background: white;
+    transition: all 0.2s;
+  }
+  .check-box.checked {
+    background: var(--gold);
+    border-color: var(--gold);
+  }
+  .check-box.checked::after { content: '✓'; color: white; font-size: 13px; font-weight: 700; }
+
+  /* ── SECTION HEADING ─────────────────────────────── */
+  .section-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(24px, 3.5vw, 36px);
+    color: var(--dark-green);
+    text-align: center;
+    margin: 64px 0 8px;
+  }
+  .section-heading-line {
+    width: 80px; height: 4px;
+    background: var(--gold);
+    border-radius: 2px;
+    margin: 0 auto 40px;
+  }
+
+  /* ── CONCLUSION BOX ──────────────────────────────── */
+  .conclusion-box {
+    background: linear-gradient(135deg, var(--dark-green), #0B2B40);
+    border-radius: 16px;
+    padding: 48px 40px;
+    text-align: center;
+    margin: 48px 0;
+    color: white;
+  }
+  .conclusion-box p {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: clamp(15px, 2vw, 19px);
+    color: rgba(255,255,255,0.9);
+    line-height: 1.9;
+    margin-bottom: 10px;
+  }
+  .conclusion-amin {
+    font-family: 'Amiri', serif;
+    font-size: 48px;
+    color: var(--gold);
+    margin-top: 24px;
+  }
+
+  /* ── FOOTER ──────────────────────────────────────── */
+  .footer {
+    background: var(--dark-green);
+    text-align: center;
+    padding: 32px 24px;
+    color: var(--light-gold);
+    font-size: 14px;
+  }
+  .footer strong { color: var(--gold); }
+
+  /* ── PROGRESS BAR ────────────────────────────────── */
+  .progress-bar-wrap {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(26,71,42,0.97);
+    padding: 10px 24px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    backdrop-filter: blur(6px);
+  }
+  .progress-label {
+    color: var(--gold);
+    font-size: 13px;
+    font-weight: 700;
+    white-space: nowrap;
+  }
+  .progress-bar {
+    flex: 1;
+    height: 8px;
+    background: rgba(255,255,255,0.15);
+    border-radius: 4px;
+    overflow: hidden;
+  }
+  .progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--gold), #f0d060);
+    border-radius: 4px;
+    transition: width 0.4s ease;
+    width: 0%;
+  }
+  .progress-count {
+    color: var(--light-gold);
+    font-size: 13px;
+    white-space: nowrap;
+  }
+
+  @media print {
+    .progress-bar-wrap { display: none; }
+    .checklist li { break-inside: avoid; }
+    .pillar-header { break-before: page; }
+  }
+</style>
+</head>
+<body>
+
+<!-- COVER -->
+<section class="cover">
+  <div class="cover-moon">☽</div>
+  <h1>The Halal Digital Launch Checklist</h1>
+  <p class="cover-sub">5 Pillars of an Ethical Online Business</p>
+  <p class="cover-root">Rooted in the Quran &amp; Sunnah</p>
+  <div class="cover-geo"></div>
+  <p class="cover-author">By Yahya Aliyyi &nbsp;|&nbsp; Ummah Beacon</p>
+  <p class="cover-site">ummahbeacon.com</p>
+</section>
+
+<!-- STICKY PROGRESS -->
+<div class="progress-bar-wrap">
+  <span class="progress-label">☑ Checklist Progress</span>
+  <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+  <span class="progress-count" id="progressCount">0 / 0</span>
+</div>
+
+<!-- MAIN CONTENT -->
+<main class="container">
+
+  <!-- INTRODUCTION -->
+  <h2 class="section-heading">Introduction</h2>
+  <div class="section-heading-line"></div>
+
+  <div class="bismillah-block">
+    <div class="bismillah-arabic">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</div>
+    <div class="bismillah-trans">In the Name of Allah, the Most Gracious, the Most Merciful</div>
+  </div>
+
+  <p class="body-text">Alhamdulillah — all praise belongs to Allah, the One who blessed us with intellect, resources, and the guidance of His final Messenger ﷺ. In an age where the internet has become the marketplace of the world, the Muslim entrepreneur faces a unique and sacred challenge: how do we build, grow, and profit online without compromising our deen?</p>
+  <p class="body-text">This checklist is not just a business tool — it is a mirror. It invites you to examine your digital venture through the lens of the Quran and the Sunnah, ensuring that every click, every product, every transaction is an act of worship and not merely a transaction.</p>
+  <p class="body-text">The Five Pillars outlined in this guide — Niyyah, Amanah, Sidq, Ihsan, and Mas'uliyyah — are timeless Islamic principles that, when applied to your online business, transform it from a means of earning into a means of leaving a righteous legacy for the Ummah.</p>
+
+  <div class="ayah-block">
+    <div class="ayah-arabic">يَا أَيُّهَا الَّذِينَ آمَنُوا لَا تَأْكُلُوا أَمْوَالَكُم بَيْنَكُم بِالْبَاطِلِ</div>
+    <div class="ayah-ref">Surah An-Nisa, 4:29</div>
+    <div class="ayah-english">"O you who have believed, do not consume one another's wealth unjustly..."</div>
+  </div>
+
+  <p class="body-text">Use this guide before you launch. Use it as you grow. Share it with your fellow Muslim entrepreneurs. And most importantly — begin every step with the Name of Allah.</p>
+
+  <hr class="divider"/>
+
+  <!-- ── PILLAR 1 ── -->
+  <div class="pillar-header">
+    <div class="pillar-num">Pillar One</div>
+    <div class="pillar-arabic">النِّيَّة</div>
+    <div class="pillar-english">Niyyah — Sincere Intention</div>
+  </div>
+
+  <p class="body-text">Every act in Islam begins with intention. Your business is no different. The Prophet ﷺ said: "Actions are judged by intentions." Before you write your first line of copy, build your first landing page, or send your first email — ask yourself: <em>Why am I doing this?</em></p>
+
+  <div class="ayah-block">
+    <div class="ayah-arabic">قُلْ إِنَّ صَلَاتِي وَنُسُكِي وَمَحْيَايَ وَمَمَاتِي لِلَّهِ رَبِّ الْعَالَمِينَ</div>
+    <div class="ayah-ref">Surah Al-An'am, 6:162</div>
+    <div class="ayah-english">"Say: Indeed my prayer, my rites of sacrifice, my living and my dying are for Allah, Lord of the worlds."</div>
+  </div>
+
+  <div class="subtitle">1.1 — Define Your 'Why' in the Light of the Deen</div>
+  <p class="body-text">Before registering a domain name, write a one-paragraph mission statement that anchors your business purpose to a higher calling. Ask: How does this business serve the Ummah? How does it glorify Allah? Is it solving a real problem for real people?</p>
+  <p class="body-text">A business built on sincere intention is one that sustains itself through difficulty, because the entrepreneur knows the reward is not only in the profit margin — it is in the scales of the Hereafter.</p>
+  <ul class="checklist">
+    <li><span class="check-box" onclick="toggle(this)"></span>I have written a clear mission statement rooted in benefiting others and pleasing Allah.</li>
+    <li><span class="check-box" onclick="toggle(this)"></span>I have examined my motivations honestly — seeking rizq halal and not vanity or status.</li>
+    <li><span class="check-box" onclick="toggle(this)"></span>I have made du'a and performed Istikhara before committing to this venture.</li>
+  </ul>
+
+  <div class="subtitle">1.2 — Revisiting Intention Regularly</div>
+  <p class="body-text">Niyyah is not a one-time event at launch. As your business grows, temptations multiply — shortcuts, grey-area income, harmful collaborations. Build a habit of reviewing your intention monthly.</p>
+  <div class="hadith-block">
+    <div class="hadith-text">"Verily, Allah does not look at your appearances or your wealth, but He looks at your hearts and your actions."</div>
+    <div class="hadith-source">— Sahih Muslim, 2564</div>
+  </div>
+  <ul class="checklist">
+    <li><span class="check-box" onclick="toggle(this)"></span>I have scheduled a monthly 'intention review' into my calendar.</li>
+    <li><span class="check-box" onclick="toggle(this)"></span>I have shared my business mission with a trusted Muslim mentor or advisor.</li>
+  </ul>
+
+  <div class="subtitle">1.3 — Halal Revenue Streams Only</div>
+  <p class="body-text">Your intention must be matched by your income sources. Ensure every product, service, affiliate partnership, and advertisement complies with Islamic principles. Avoid interest-based structures, deceptive marketing, and partnerships that contradict Islamic ethics.</p>
+  <ul class="checklist">
+    <li><span class="check-box" onclick="toggle(this)"></span>All products/services are halal and free from forbidden elements (riba, gharar, deception).</li>
+    <li><span class="check-box" onclick="toggle(this)"></span>Affiliate or partnership deals have been reviewed for compliance.</li>
+    <li><span class="check-box" onclick="toggle(this)"></span>I have consulted a knowledgeable person if unsure about any income source.</li>
+  </ul>
+
+  <hr class="divider"/>
+
+  <!-- ── PILLAR 2 ── -->
+  <div class="pillar-header">
+    <div class="pillar-num">Pillar Two</div>
+    <div class="pillar-arabic">الأَمَانَة</div>
+    <div class="pillar-english">Amanah — Trust &amp; Integrity</div>
+  </div>
+
+  <p class="body-text">Amanah — trustworthiness — was the defining character of our Prophet Muhammad ﷺ, known as Al-Amin (The Trustworthy) even before prophethood. In the digital world, where anonymity tempts many to cut corners, the Muslim entrepreneur must be the most trustworthy presence in the marketplace.</p>
+
+  <div class="ayah-block">
+    <div class="ayah-arabic">إِنَّ اللَّهَ يَأْمُرُكُمْ أَن تُؤَدُّوا الْأَمَانَاتِ إِلَىٰ أَهْلِهَا</div>
+    <div class="ayah-ref">Surah An-Nisa, 4:58</div>
+    <div class="ayah-english">"Indeed, Allah commands you to render trusts to whom they are due..."</div>
+  </div>
+
+  <div class="subtitle">2.1 — Data Privacy &amp; Security</div>
+  <p class="body-text">Your subscribers and customers entrust you with their personal information. This is an amanah. Protect their data as you would protect their physical property. Invest in SSL certificates, secure hosting, reputable payment gateways, and a clear privacy policy written in plain language.</p>
+  <ul class="checklist">
+    <li><span class="check-box" onclick="toggle(this)"></span>My website uses HTTPS (SSL certificate installed and active).</li>
+    <li><span class="check-box" onclick="toggle(this)"></span>I have a published, plain-language Privacy Policy on my website.</li>
+    <li><span class="check-box" onclick="toggle(this)"></span>Customer data is stored securely and never sold to third parties.</li>
+    <li><span class="check-box" onclick="toggle(this)"></span>I use a reputable, PCI-compliant payment processor.</li>
+  </ul>
+
+  <div class="subtitle">2.2 — Fulfilling Promises &amp; Commitments</div>
+  <p class="body-text">Every promise you make — delivery timelines, refund policies, product quality, support response times — is a covenant. The Prophet ﷺ counted breaking promises as a sign of hypocrisy. Under-promise and over-deliver.</p>
+  <div class="hadith-block">
+    <div class="hadith-text">"The signs of a hypocrite are three: when he speaks, he lies; when he makes a promise, he breaks it; and when he is entrusted, he betrays the trust."</div>
+    <div class="hadith-source">— Sahih Al-Bukhari, 33</div>
+  </div>
+  <ul class="checklist">
+    <li><span class="check-box" onclick="toggle(this)"></span>My refund/return policy is clearly stated and honoured without dispute.</li>
+    <li><span class="check-box" onclick="toggle(this)"></span>Delivery timelines are realistic and I communicate proactively if delayed.</li>
+    <li><span class="check-box" onclick="toggle(this)"></span>Customer support inquiries are responded to within a defined timeframe.</li>
+  </ul>
+
+  <div class="subtitle">2.3 — Transparent Terms &amp; Conditions</div>
+  <p class="body-text">Do not hide important conditions in fine print. Be transparent about what the customer is buying, what is excluded, how disputes are resolved, and what happens if something goes wrong.</p>
+  <ul class="checklist">
+    <li><span class="check-box" onclick="toggle(this)"></span>Terms &amp; Conditions are published, readable, and accurate.</li>
+    <li><span class="check-box" onclick="toggle(this)"></span>Subscription or recurring billing terms are disclosed clearly before purchase.</li>
+    <li><span class="check-box" onclick="toggle(this)"></span>There are no hidden fees or deceptive charges.</li>
+  </ul>
+
+  <hr class="divider"/>
+
+  <!-- ── PILLAR 3 ── -->
+  <div class="pillar-header">
+    <div class="pillar-num">Pillar Three</div>
+    <div class="pillar-arabic">الصِّدْق</div>
+    <div class="pillar-english">Sidq — Truthfulness</div>
+  </div>
+
+  <p class="body-text">Sidq — truthfulness — is among the highest virtues in Islam. In digital marketing, it is perhaps the most violated. Inflated testimonials, fake urgency timers, exaggerated income claims, and misleading product descriptions are rampant. The Muslim entrepreneur must stand apart as a beacon of honesty.</p>
+
+  <div class="ayah-block">
+    <div class="ayah-arabic">يَا أَيُّهَا الَّذِينَ آمَنُوا اتَّقُوا اللَّهَ وَكُونُوا مَعَ الصَّادِقِينَ</div>
+    <div class="ayah-ref">Surah At-Tawbah, 9:119</div>
+    <div class="ayah-english">"O you who have believed, fear Allah and be with those who are truthful."</div>
+  </div>
+
+  <div class="subtitle">3.1 — Truthful Marketing &amp; Copywriting</div>
+  <p class="body-text">Every word on your website, in your emails, and on your social media must be truthful. Do not claim your product does what it does not do. Do not show testimonials that are fabricated or paid without disclosure. Do not use false urgency to pressure buyers.</p>
+  <div class="hadith-block">
+    <div class="hadith-text">"The merchant who is honest and trustworthy will be with the Prophets, the truthful, and the martyrs."</div>
+    <div class="hadith-source">— Sunan At-Tirmidhi, 1209</div>
+  </div>
+  <ul class="checklist">
+    <li><span class="check-box" onclick="toggle(this)"></span>All product descriptions are accurate and free from exaggeration.</li>
+    <li><span class="check-box" onclick="toggle(this)"></span>Testimonials are genuine, unedited, and displayed with permission.</li>
+    <li><span class="check-box" onclick="toggle(this)"></span>Countdown timers and scarcity claims are real and honest.</li>
+    <li><span class="check-box" onclick="toggle(this)"></span>Income or results claims include accurate disclaimers.</li>
+  </ul>
+
+  <div class="subtitle">3.2 — Honest Pricing</div>
+  <p class="body-text">Price your products fairly. Do not inflate prices only to slash them with fake discounts. Display prices clearly including taxes and fees. If you offer tiered pricing, explain clearly what each tier includes.</p>
+  <ul class="checklist">
+    <li><span class="check-box" onclick="toggle(this)"></span>Prices are clearly displayed including any applicable taxes or fees.</li>
+    <li><span class="check-box" onclick="toggle(this)"></span>Discount claims are based on genuine previous pricing.</li>
+    <li><span class="check-box" onclick="toggle(this)"></span>Pricing is not exploitative of the financially vulnerable.</li>
+  </ul>
+
+  <div class="subtitle">3.3 — Honest About Your Qualifications</div>
+  <p class="body-text">In the age of personal branding, it is tempting to project expertise you have not yet earned. Be honest about your experience level, your credentials, and the stage of your journey. Authenticity builds deeper trust than a polished facade.</p>
+  <ul class="checklist">
+    <li><span class="check-box" onclick="toggle(this)"></span>My bio and About page accurately reflect my experience and qualifications.</li>
+    <li><span class="check-box" onclick="toggle(this)"></span>I do not claim expertise in areas where I am still learning.</li>
+    <li><span class="check-box" onclick="toggle(this)"></span>Collaborations and guest experts are properly credited and introduced honestly.</li>
+  </ul>
+
+  <hr class="divider"/>
+
+  <!-- ── PILLAR 4 ── -->
+  <div class="pillar-header">
+    <div class="pillar-num">Pillar Four</div>
+    <div class="pillar-arabic">الإِحْسَان</div>
+    <div class="pillar-english">Ihsan — Excellence</div>
+  </div>
+
+  <p class="body-text">Ihsan means to do things beautifully — with full devotion, craft, and care — as if Allah is watching. The Prophet ﷺ said: "Allah has prescribed Ihsan in all things." Your website design, your content quality, your customer experience — everything is an act of worship when done with Ihsan.</p>
+
+  <div class="ayah-block">
+    <div class="ayah-arabic">وَأَحْسِنُوا ۛ إِنَّ اللَّهَ يُحِبُّ الْمُحْسِنِينَ</div>
+    <div class="ayah-ref">Surah Al-Baqarah, 2:195</div>
+    <div class="ayah-english">"...And do good; indeed, Allah loves the doers of good."</div>
+  </div>
+
+  <div class="subtitle">4.1 — Quality of Products &amp; Services</div>
+  <p class="body-text">Never release a product you are not proud of. Every digital product — whether a course, an eBook, a consulting service, or a membership — should represent your very best effort. Review it. Test it. Refine it. A Muslim does not sell what he himself would not buy.</p>
+  <div class="hadith-block">
+    <div class="hadith-text">"Allah loves that when any of you does a job, he does it with itqan (perfection/mastery)."</div>
+    <div class="hadith-source">— Al-Bayhaqi, Shu'ab Al-Iman</div>
+  </div>
+  <ul class="checklist">
+    <li><span class="check-box" onclick="toggle(this)"></span>My product/service has gone through at least one full quality review before launch.</li>
+    <li><span class="check-box" onclick="toggle(this)"></span>I have tested the customer journey from landing page to delivery myself.</li>
+    <li><span class="check-box" onclick="toggle(this)"></span>I have incorporated beta user or trusted reviewer feedback.</li>
+  </ul>
+
+  <div class="subtitle">4.2 — Website Design &amp; User Experience</div>
+  <p class="body-text">A well-designed website honours the visitor's time and attention. Ensure your site loads fast, works on mobile, has clear navigation, and delivers content without friction. Ihsan in design means the visitor feels respected and served.</p>
+  <ul class="checklist">
+    <li><span class="check-box" onclick="toggle(this)"></span>My website loads within 3 seconds on mobile (tested with Google PageSpeed).</li>
+    <li><span class="check-box" onclick="toggle(this)"></span>The site is fully mobile-responsive.</li>
+    <li><span class="check-box" onclick="toggle(this)"></span>Navigation is intuitive — a new visitor can find what they need within 2 clicks.</li>
+    <li><span class="check-box" onclick="toggle(this)"></span>Accessibility basics are met: alt text on images, readable fonts, sufficient contrast.</li>
+  </ul>
+
+  <div class="subtitle">4.3 — Content Quality &amp; Consistency</div>
+  <p class="body-text">Your blog posts, videos, emails, and social posts are your da'wah in the marketplace. Publish content that is researched, well-written, and genuinely useful. One excellent piece a week is worth far more than seven mediocre ones.</p>
+  <ul class="checklist">
+    <li><span class="check-box" onclick="toggle(this)"></span>I have a content calendar with a realistic and consistent publishing schedule.</li>
+    <li><span class="check-box" onclick="toggle(this)"></span>Every published piece is proofread and fact-checked before release.</li>
+    <li><span class="check-box" onclick="toggle(this)"></span>Content provides genuine value and is not created merely for SEO filler.</li>
+  </ul>
+
+  <div class="subtitle">4.4 — Customer Support Excellence</div>
+  <p class="body-text">How you treat a frustrated customer reveals your true character. Set up a clear support system — a dedicated email address, a FAQ page, or a helpdesk. Respond with patience and warmth. A customer who receives exceptional support after a problem becomes your most loyal advocate.</p>
+  <ul class="checklist">
+    <li><span class="check-box" onclick="toggle(this)"></span>A clear customer support channel is published on the website.</li>
+    <li><span class="check-box" onclick="toggle(this)"></span>I have a documented process for handling refunds and complaints.</li>
+    <li><span class="check-box" onclick="toggle(this)"></span>Support responses are warm, helpful, and solution-focused.</li>
+  </ul>
+
+  <hr class="divider"/>
+
+  <!-- ── PILLAR 5 ── -->
+  <div class="pillar-header">
+    <div class="pillar-num">Pillar Five</div>
+    <div class="pillar-arabic">المَسْؤُولِيَّة</div>
+    <div class="pillar-english">Mas'uliyyah — Responsibility</div>
+  </div>
+
+  <p class="body-text">Mas'uliyyah — accountability and responsibility — reminds the Muslim entrepreneur that they will be asked about every decision, every post, every product. You are responsible to Allah, to your customers, to your community, and to yourself.</p>
+
+  <div class="ayah-block">
+    <div class="ayah-arabic">فَمَن يَعْمَلْ مِثْقَالَ ذَرَّةٍ خَيْرًا يَرَهُ ۝ وَمَن يَعْمَلْ مِثْقَالَ ذَرَّةٍ شَرًّا يَرَهُ</div>
+    <div class="ayah-ref">Surah Az-Zalzalah, 99:7-8</div>
+    <div class="ayah-english">"So whoever does an atom's weight of good will see it. And whoever does an atom's weight of evil will see it."</div>
+  </div>
+
+  <div class="subtitle">5.1 — Social &amp; Environmental Responsibility</div>
+  <p class="body-text">Your business operates within a community. Consider who you are serving, who might be harmed, and what your digital footprint looks like. Are your ads targeted responsibly? Does your content reinforce harmful stereotypes?</p>
+  <ul class="checklist">
+    <li><span class="check-box" onclick="toggle(this)"></span>My advertising targeting does not exploit vulnerable demographics.</li>
+    <li><span class="check-box" onclick="toggle(this)"></span>My content does not reinforce harmful social stereotypes.</li>
+    <li><span class="check-box" onclick="toggle(this)"></span>I have considered the environmental impact of my business operations.</li>
+  </ul>
+
+  <div class="subtitle">5.2 — Giving Back — Sadaqah &amp; Zakat Integration</div>
+  <p class="body-text">Wealth is a trust from Allah. Build generosity into your business model from Day 1, not as an afterthought. Consider pledging a percentage of revenue to charity. When your business grows, your sadaqah grows with it.</p>
+  <div class="hadith-block">
+    <div class="hadith-text">"Sadaqah (charity) does not decrease wealth."</div>
+    <div class="hadith-source">— Sahih Muslim, 2588</div>
+  </div>
+  <ul class="checklist">
+    <li><span class="check-box" onclick="toggle(this)"></span>I have identified a percentage of revenue to give in sadaqah.</li>
+    <li><span class="check-box" onclick="toggle(this)"></span>I have identified at least one cause or charity aligned with my business mission.</li>
+    <li><span class="check-box" onclick="toggle(this)"></span>Charitable giving is embedded in my financial plan, not an occasional afterthought.</li>
+  </ul>
+
+  <div class="subtitle">5.3 — Accountability to the Ummah</div>
+  <p class="body-text">As your platform grows, so does your responsibility to the Muslim community. Be careful about what you amplify, who you partner with, and what narrative your brand contributes to. Use your reach to uplift — share knowledge freely, support other Muslim entrepreneurs, and build bridges rather than walls.</p>
+  <ul class="checklist">
+    <li><span class="check-box" onclick="toggle(this)"></span>I actively recommend and credit other Muslim businesses and creators in my field.</li>
+    <li><span class="check-box" onclick="toggle(this)"></span>My platform is used to share beneficial knowledge, not only to sell.</li>
+    <li><span class="check-box" onclick="toggle(this)"></span>I am open to feedback from my community and act on legitimate concerns.</li>
+  </ul>
+
+  <div class="subtitle">5.4 — Legal &amp; Tax Compliance</div>
+  <p class="body-text">Paying your taxes and obeying the laws of the land where you operate is an Islamic obligation as long as those laws do not contradict the Shari'ah. Register your business properly, keep accurate financial records, and fulfil all legal obligations.</p>
+  <ul class="checklist">
+    <li><span class="check-box" onclick="toggle(this)"></span>My business is legally registered in the appropriate jurisdiction.</li>
+    <li><span class="check-box" onclick="toggle(this)"></span>I maintain accurate financial records and receipts for all transactions.</li>
+    <li><span class="check-box" onclick="toggle(this)"></span>I am aware of and compliant with relevant consumer protection laws.</li>
+    <li><span class="check-box" onclick="toggle(this)"></span>I have consulted with an accountant or legal professional as needed.</li>
+  </ul>
+
+  <hr class="divider"/>
+
+  <!-- CONCLUSION -->
+  <h2 class="section-heading">Conclusion &amp; Next Steps</h2>
+  <div class="section-heading-line"></div>
+
+  <div class="bismillah-block">
+    <div class="bismillah-arabic">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</div>
+    <div class="bismillah-trans">In the Name of Allah, the Most Gracious, the Most Merciful</div>
+  </div>
+
+  <p class="body-text">You have now reviewed the Five Pillars of a Halal Digital Business. If you have checked every item in this checklist — mashAllah, you have laid an extraordinary foundation. If you found gaps — alhamdulillah, you now have a clear roadmap.</p>
+  <p class="body-text">Remember: a halal business is not a limitation — it is a superpower. When your customers know they can trust you completely, when your content always delivers real value, when your brand stands for integrity — you have something no algorithm can replicate and no competitor can easily copy.</p>
+
+  <div class="ayah-block">
+    <div class="ayah-arabic">وَمَن يَتَّقِ اللَّهَ يَجْعَل لَّهُ مَخْرَجًا ۝ وَيَرْزُقْهُ مِنْ حَيْثُ لَا يَحْتَسِبُ</div>
+    <div class="ayah-ref">Surah At-Talaq, 65:2-3</div>
+    <div class="ayah-english">"And whoever fears Allah — He will make for him a way out. And will provide for him from where he does not expect."</div>
+  </div>
+
+  <div class="subtitle">Your Action Plan</div>
+  <p class="body-text">Work through each pillar one at a time. Do not rush — thorough preparation is itself an act of Ihsan. Revisit this checklist every quarter as your business evolves.</p>
+  <ul class="checklist">
+    <li><span class="check-box" onclick="toggle(this)"></span>Complete all unchecked items before your official launch date.</li>
+    <li><span class="check-box" onclick="toggle(this)"></span>Share this checklist with one other Muslim entrepreneur in your network.</li>
+    <li><span class="check-box" onclick="toggle(this)"></span>Visit ummahbeacon.com for more resources, guides, and community support.</li>
+    <li><span class="check-box" onclick="toggle(this)"></span>Make du'a for your business, your customers, and the entire Ummah.</li>
+  </ul>
+
+  <div class="conclusion-box">
+    <p>May Allah bless your efforts, purify your income,</p>
+    <p>and make your business a sadaqah jariyah for you and your family.</p>
+    <div class="conclusion-amin">آمين</div>
+  </div>
+
+</main>
+
+<footer class="footer">
+  <strong>Yahya Aliyyi</strong> &nbsp;|&nbsp; Ummah Beacon &nbsp;|&nbsp; <strong>ummahbeacon.com</strong><br/>
+  <span style="opacity:0.7;font-size:12px;margin-top:6px;display:block;">© 2025 Ummah Beacon. Distributed as a free resource for the benefit of the Ummah.</span>
+</footer>
+
+<script>
+  function toggle(el) {
+    el.classList.toggle('checked');
+    updateProgress();
+  }
+
+  function updateProgress() {
+    const all = document.querySelectorAll('.check-box');
+    const checked = document.querySelectorAll('.check-box.checked');
+    const pct = all.length ? Math.round((checked.length / all.length) * 100) : 0;
+    document.getElementById('progressFill').style.width = pct + '%';
+    document.getElementById('progressCount').textContent = checked.length + ' / ' + all.length;
+  }
+
+  updateProgress();
+</script>
+</body>
+</html>
