@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"/>
+<meta name="theme-color" content="#0F6E56"/>
+<meta name="description" content="Light for the Muslim Ummah — Islamic leadership, ethics, coaching and ebooks by Yahya Aliyyi, Jimma Ethiopia."/>
+<title>Ummah Beacon – Light for the Muslim Ummah</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800&family=Lato:wght@300;400;700&family=Amiri:wght@400;700&display=swap" rel="stylesheet"/>
+<style>
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{
+    font-family:'Lato', 'Segoe UI', system-ui, sans-serif;
+    font-weight:400;
+    color:#1a1a1a;
+    background:#fff;
+    line-height:1.7;
+    font-size:16px;
+  }
+  a{color:inherit;text-decoration:none;}
+
+  /* HEADINGS — Playfair Display (Premium Serif) */
+  h1,h2,h3,h4{
+    font-family:'Playfair Display', Georgia, serif;
+    font-weight:700;
+    line-height:1.25;
+    letter-spacing:-.01em;
+  }
+  h1{font-size:clamp(1.8rem,4vw,2.8rem);}
+  h2{font-size:clamp(1.4rem,3vw,2rem);}
+  h3{font-size:clamp(1rem,2vw,1.3rem);}
+
+  /* BODY TEXT — Lato (Clean, Modern) */
+  p, li, span, a{
+    font-family:'Lato', sans-serif;
+    font-weight:400;
+    line-height:1.75;
+  }
+
+  /* ARABIC TEXT — Amiri (Beautiful Islamic Font) */
+  .arabic{
+    font-family:'Amiri', serif;
+    font-size:1.6rem;
+    line-height:2;
+    direction:rtl;
+    color:#0F6E56;
+    font-weight:700;
+  }
+
+  /* SPECIAL TEXT STYLES */
+  .lead{font-size:1.15rem;font-weight:300;color:#444;line-height:1.8;}
+  .caption{font-size:.82rem;font-weight:400;color:#888;letter-spacing:.04em;}
+  .label{font-size:.75rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;}
+  strong{font-weight:700;}
+
+  /* HEADER TYPOGRAPHY */
+  header h1{
+    font-family:'Playfair Display', Georgia, serif;
+    font-size:clamp(2rem,5vw,3.2rem);
+    font-weight:800;
+    color:#FAC775;
+    letter-spacing:.02em;
+    margin-bottom:12px;
+  }
+  header p{
+    font-family:'Lato', sans-serif;
+    font-size:1.15rem;
+    font-weight:300;
+    color:#9FE1CB;
+    letter-spacing:.08em;
+  }
+
+  /* ISLAMIC BACKGROUND MOTIFS */
+
+  /* Star pattern for sections */
+  .motif-star{
+    position:relative;
+    overflow:hidden;
+  }
+  .motif-star::before{
+    content:'';
+    position:absolute;
+    top:0;left:0;right:0;bottom:0;
+    background-image:
+      radial-gradient(circle, rgba(15,110,86,.06) 1px, transparent 1px);
+    background-size:30px 30px;
+    pointer-events:none;
+    z-index:0;
+  }
+  .motif-star > *{position:relative;z-index:1;}
+
+  /* Geometric diamond pattern */
+  .motif-diamond{
+    position:relative;
+    overflow:hidden;
+  }
+  .motif-diamond::before{
+    content:'';
+    position:absolute;
+    top:0;left:0;right:0;bottom:0;
+    background-image:
+      linear-gradient(45deg, rgba(186,117,23,.05) 25%, transparent 25%),
+      linear-gradient(-45deg, rgba(186,117,23,.05) 25%, transparent 25%),
+      linear-gradient(45deg, transparent 75%, rgba(186,117,23,.05) 75%),
+      linear-gradient(-45deg, transparent 75%, rgba(186,117,23,.05) 75%);
+    background-size:20px 20px;
+    background-position:0 0, 0 10px, 10px -10px, -10px 0px;
+    pointer-events:none;
+    z-index:0;
+  }
+  .motif-diamond > *{position:relative;z-index:1;}
+
+  /* Arabic arch pattern for dark sections */
+  .motif-arch{
+    position:relative;
+    overflow:hidden;
+  }
+  .motif-arch::after{
+    content:'';
+    position:absolute;
+    top:0;left:0;right:0;bottom:0;
+    background-image:
+      radial-gradient(ellipse at top, rgba(250,199,117,.07) 0%, transparent 60%),
+      radial-gradient(ellipse at bottom, rgba(15,110,86,.08) 0%, transparent 60%);
+    pointer-events:none;
+    z-index:0;
+  }
+  .motif-arch > *{position:relative;z-index:1;}
+
+  /* SVG Islamic star watermark */
+  .motif-watermark{
+    position:relative;
+    overflow:hidden;
+  }
+  .motif-watermark::before{
+    content:'✦';
+    position:absolute;
+    font-size:300px;
+    color:rgba(15,110,86,.04);
+    top:50%;left:50%;
+    transform:translate(-50%,-50%) rotate(15deg);
+    pointer-events:none;
+    z-index:0;
+    line-height:1;
+  }
+  .motif-watermark > *{position:relative;z-index:1;}
+
+  /* Crescent corner decoration */
+  .motif-crescent{
+    position:relative;
+    overflow:hidden;
+  }
+  .motif-crescent::before{
+    content:'🌙';
+    position:absolute;
+    font-size:180px;
+    opacity:.04;
+    top:-20px;
+    right:-20px;
+    pointer-events:none;
+    z-index:0;
+    line-height:1;
+  }
+  .motif-crescent > *{position:relative;z-index:1;}
+  header{background:linear-gradient(135deg,#043d2e,#0F6E56);color:#fff;text-align:center;padding:60px 20px 40px;}
+  header h1{font-size:2.5rem;font-weight:700;color:#FAC775;margin-bottom:10px;}
+  header p{font-size:1.1rem;color:#9FE1CB;letter-spacing:.05em;}
+
+  /* NAV */
+  nav{background:#111;padding:15px;text-align:center;position:sticky;top:0;z-index:100;}
+  nav ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;justify-content:center;gap:6px;}
+  nav ul li a{color:gold;text-decoration:none;font-weight:bold;padding:6px 12px;border-radius:4px;font-size:.9rem;transition:background .2s;}
+  nav ul li a:hover{background:rgba(255,215,0,.15);}
+
+  /* FOOTER */
+  footer{background:#111;color:gold;text-align:center;padding:30px 20px;margin-top:40px;}
+  footer a{color:gold;}
+  footer p{margin-bottom:8px;font-size:.9rem;}
+
+  /* BUTTONS */
+  .btn-gold{display:inline-block;background:gold;color:#333;padding:12px 28px;border-radius:6px;font-weight:700;margin-top:16px;transition:background .2s;}
+  .btn-gold:hover{background:#EF9F27;}
+
+  /* ============================================
+     MOBILE RESPONSIVE — Full Optimization
+     ============================================ */
+  @media(max-width:768px){
+
+    /* Hero Banner */
+    .motif-arch div[style*="display:flex;align-items:center"]{
+      flex-direction:column;
+      text-align:center;
+    }
+    .motif-arch div[style*="text-align:left"]{
+      text-align:center !important;
+    }
+
+    /* Navigation */
+    nav ul{gap:4px;}
+    nav ul li a{font-size:.78rem;padding:5px 8px;}
+
+    /* Sections */
+    section{padding:36px 20px !important;}
+
+    /* Headings */
+    h1{font-size:1.6rem !important;}
+    h2{font-size:1.3rem !important;}
+    h3{font-size:1rem !important;}
+
+    /* Ebook cards grid */
+    div[style*="grid-template-columns:repeat(auto-fit,minmax(220px"]{
+      grid-template-columns:1fr !important;
+    }
+
+    /* Ebook feature badges */
+    div[style*="display:flex;gap:12px;justify-content:center"]{
+      gap:8px !important;
+    }
+
+    /* CTA buttons stack */
+    div[style*="display:flex;gap:10px;justify-content:center"]{
+      flex-direction:column;
+      align-items:center;
+    }
+    div[style*="display:flex;gap:14px;justify-content:center"]{
+      flex-direction:column;
+      align-items:center;
+    }
+
+    /* Contact payment cards */
+    div[style*="display:grid"]{
+      grid-template-columns:1fr !important;
+    }
+
+    /* Subscription form */
+    div[style*="display:flex; gap:10px; max-width:460px"]{
+      flex-direction:column;
+    }
+    div[style*="display:flex; gap:10px; max-width:460px"] input{
+      width:100% !important;
+    }
+    div[style*="display:flex; gap:10px; max-width:460px"] button{
+      width:100% !important;
+    }
+
+    /* Footer */
+    footer{padding:24px 16px;}
+    footer p{font-size:.82rem;}
+
+    /* Buttons full width on mobile */
+    a[style*="padding:14px"]{
+      display:block !important;
+      width:100%;
+      max-width:300px;
+      margin:0 auto;
+      text-align:center;
+    }
+  }
+
+  @media(max-width:400px){
+    nav ul li a{font-size:.72rem;padding:4px 6px;}
+    div[style*="font-family:'Amiri'"]{font-size:1.3rem !important;}
+    header h1{font-size:1.5rem !important;}
+  }
+
+  /* Touch friendly — all clickable elements */
+  a, button{
+    min-height:44px;
+    touch-action:manipulation;
+    -webkit-tap-highlight-color:rgba(0,0,0,.1);
+  }
+</style>
+ <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-H81B8G7E36"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-H81B8G7E36');
+</script>
+ <!-- Google tag (gtag.js) --> <script async src="https://www.googletagmanager.com/gtag/js?id=G-H81B8G7E36"></script> <script> window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'G-H81B8G7E36'); </script>
+</head>
+<body>
+
+<!-- BISMILLAH HERO BANNER -->
+<div class="motif-arch" style="background:linear-gradient(135deg,#021f17 0%,#043d2e 50%,#0F6E56 100%);color:#fff;text-align:center;padding:36px 20px 32px;position:relative;overflow:hidden;">
+
+  <!-- Decorative circles -->
+  <div style="position:absolute;top:-40px;right:-40px;width:180px;height:180px;border-radius:50%;background:rgba(255,255,255,.03);"></div>
+  <div style="position:absolute;bottom:-50px;left:-50px;width:220px;height:220px;border-radius:50%;background:rgba(255,255,255,.02);"></div>
+
+  <!-- Bismillah Arabic -->
+  <div style="font-family:'Amiri',serif;font-size:clamp(1.4rem,3.5vw,2.2rem);color:#FAC775;direction:rtl;line-height:1.8;margin-bottom:4px;font-weight:700;">
+    بِسْمِ اللهِ الرَّحْمٰنِ الرَّحِيْمِ
+  </div>
+
+  <!-- Translation -->
+  <div style="font-family:'Lato',sans-serif;font-size:.82rem;color:rgba(255,255,255,.45);font-style:italic;margin-bottom:18px;letter-spacing:.04em;">
+    "In the name of Allah, the Most Gracious, the Most Merciful"
+  </div>
+
+  <!-- Divider -->
+  <div style="width:40px;height:2px;background:#FAC775;margin:0 auto 16px;"></div>
+
+  <!-- Site Title + Photo in one row -->
+  <div style="display:flex;align-items:center;justify-content:center;gap:16px;flex-wrap:wrap;margin-bottom:16px;">
+    <img src="yahya.jpg" alt="Yahya Aliyyi"
+      style="width:64px;height:64px;border-radius:50%;object-fit:cover;object-position:top;border:2px solid rgba(255,255,255,.3);flex-shrink:0;"/>
+    <div style="text-align:left;">
+      <div style="font-family:'Playfair Display',serif;font-size:clamp(1.4rem,3vw,2rem);font-weight:800;color:#fff;line-height:1.2;">
+        Ummah <span style="color:#FAC775;">Beacon</span>
+      </div>
+      <div style="font-family:'Lato',sans-serif;font-size:.85rem;font-weight:300;color:#9FE1CB;letter-spacing:.06em;">
+        🌙 Light for the Muslim Ummah
+      </div>
+      <div style="font-family:'Lato',sans-serif;font-size:.78rem;color:rgba(255,255,255,.45);margin-top:2px;">
+        Yahya Aliyyi · Islamic Coach · Jimma, Ethiopia 🇪🇹
+      </div>
+    </div>
+  </div>
+
+  <!-- CTA Buttons -->
+  <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap;">
+    <a href="#resources"
+       style="background:#FAC775;color:#412402;padding:10px 22px;border-radius:6px;font-family:'Lato',sans-serif;font-weight:700;font-size:.9rem;">
+      📖 Explore Resources
+    </a>
+    <a href="#coaching"
+       style="border:2px solid rgba(255,255,255,.35);color:#fff;padding:10px 22px;border-radius:6px;font-family:'Lato',sans-serif;font-weight:600;font-size:.9rem;">
+      🤝 Book Coaching
+    </a>
+  </div>
+
+</div>
+
+<!-- HEADER -->
+<header>
+  <h1>🌙 Ummah Beacon</h1>
+  <p>Light for the Muslim Ummah</p>
+</header>
+
+<!-- NAV -->
+<nav>
+  <ul>
+    <li><a href="#mission">Mission</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#principles">Principles</a></li>
+    <li><a href="#ebook">E-Book</a></li>
+    <li><a href="#resources">Resources</a></li>
+    <li><a href="#coaching">Coaching</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li><a href="#subscribe">Subscribe</a></li>
+    <li><a href="#branding">Identity</a></li>
+  </ul>
+</nav>
+
+<!-- MISSION -->
+<section id="mission" class="motif-crescent" style="background-color:#f9f9f9; padding:40px; text-align:center;">
+  <h2 style="color:#0F6E56; font-size:1.8rem; margin-bottom:16px;">🌙 Our Mission</h2>
+  <p style="font-size:18px; line-height:1.6; max-width:700px; margin:auto;">
+    Ummah Beacon exists to uplift the Muslim Ummah through ethical business, 
+    education, and spiritual guidance. We shine a light of sincerity, 
+    prosperity, and unity for generations to come.
+  </p>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects" class="motif-diamond" style="background-color:#fff; padding:40px;">
+  <h2 style="color:#0F6E56; text-align:center; font-size:1.8rem; margin-bottom:20px;">✨ Our Projects</h2>
+  <ul style="max-width:600px; margin:auto; font-size:17px; line-height:1.6; list-style:none; padding:0;">
+    <li style="margin-bottom:14px; padding:16px; background:#f9f9f9; border-left:4px solid gold; border-radius:6px;">
+      <strong>Halal Global Marketing:</strong> Ethical business education for a just economy.
+    </li>
+    <li style="margin-bottom:14px; padding:16px; background:#f9f9f9; border-left:4px solid gold; border-radius:6px;">
+      <strong>Community Uplift:</strong> Resources and initiatives to strengthen the Ummah.
+    </li>
+    <li style="margin-bottom:14px; padding:16px; background:#f9f9f9; border-left:4px solid gold; border-radius:6px;">
+      <strong>Spiritual Assets:</strong> Visual reminders and prayers to inspire daily life.
+    </li>
+  </ul>
+</section>
+
+<!-- ABOUT SECTION -->
+<section id="about" style="background:#fff; padding:60px 20px; text-align:center; color:#333;">
+  <div style="max-width:900px; margin:auto;">
+    <!-- Profile Photo -->
+    <img src="yahya.jpg" alt="Yahya Aliyyi" 
+         style="width:180px; height:180px; border-radius:50%; 
+                box-shadow:0 0 15px rgba(0,0,0,0.2); margin-bottom:20px;">
+
+    <!-- Title -->
+    <h2 style="font-family:'Playfair Display', serif; font-size:clamp(1.8rem,3vw,2.8rem); color:#043d2e;">
+      🌟 A Servant Leader Dedicated to the Ummah
+    </h2>
+    <div style="width:60px; height:3px; background:#FAC775; margin:20px auto;"></div>
+
+    <!-- Text -->
+    <p style="font-family:'Lato', sans-serif; font-size:1.05rem; line-height:1.9; margin-bottom:20px;">
+      For <strong>16 years</strong>, I served the Ethiopian people in public leadership — 
+      from district governor responsible for <strong>130,000 citizens</strong>, to Jimma Zone level 
+      serving nearly <strong>4 million people</strong>.
+    </p>
+    <p style="font-family:'Lato', sans-serif; font-size:1.05rem; line-height:1.9; margin-bottom:20px;">
+      Those years taught me the weight of <em>Amanah</em> (trust), the discipline of systems, 
+      and the power of servant leadership. My journey began in <strong>2005</strong> as 
+      <em>Amir of Muslim Students</em> at Dilla University.
+    </p>
+    <p style="font-family:'Lato', sans-serif; font-size:1.05rem; line-height:1.9;">
+      Today, I dedicate my life to helping the <strong>Ummah thrive</strong> — with integrity, 
+      barakah, and excellence — through Islamic knowledge, coaching, and practical resources 
+      that combine faith with real‑world impact.
+    </p>
+
+    <!-- Achievement Badges -->
+    <div style="display:flex; justify-content:center; flex-wrap:wrap; margin-top:40px; gap:20px;">
+      <div style="background:#043d2e; color:#FAC775; padding:20px; border-radius:10px; 
+                  width:220px; box-shadow:0 0 12px rgba(0,0,0,0.15);">
+        <h3 style="margin:0; font-size:1.4rem; font-family:'Playfair Display', serif;">16 Years</h3>
+        <p style="margin:5px 0 0; font-size:0.95rem;">Public Leadership</p>
+      </div>
+
+      <div style="background:#043d2e; color:#FAC775; padding:20px; border-radius:10px; 
+                  width:220px; box-shadow:0 0 12px rgba(0,0,0,0.15);">
+        <h3 style="margin:0; font-size:1.4rem; font-family:'Playfair Display', serif;">4M+</h3>
+        <p style="margin:5px 0 0; font-size:0.95rem;">Population Served</p>
+      </div>
+
+      <div style="background:#043d2e; color:#FAC775; padding:20px; border-radius:10px; 
+                  width:220px; box-shadow:0 0 12px rgba(0,0,0,0.15);">
+        <h3 style="margin:0; font-size:1.4rem; font-family:'Playfair Display', serif;">3</h3>
+        <p style="margin:5px 0 0; font-size:0.95rem;">Advanced Degrees</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- PRINCIPLES -->
+<section id="principles" class="motif-watermark" style="background-color:#fff; padding:40px;">
+  <h2 style="color:#0F6E56; text-align:center; font-size:1.8rem; margin-bottom:24px;">⚖️ Our Principles</h2>
+  <ul style="max-width:650px; margin:auto; font-size:17px; line-height:1.6; list-style:none; padding:0;">
+    <li style="margin-bottom:14px; padding:18px; background:#E1F5EE; border-radius:8px;">
+      <strong style="color:#0F6E56;">نِيَّة Niyyah (Intention):</strong> Begin with pure purpose — every step guided by sincerity.
+    </li>
+    <li style="margin-bottom:14px; padding:18px; background:#E1F5EE; border-radius:8px;">
+      <strong style="color:#0F6E56;">أَمَانَة Amanah (Trust):</strong> Honor commitments — trust is the foundation of community.
+    </li>
+    <li style="margin-bottom:14px; padding:18px; background:#E1F5EE; border-radius:8px;">
+      <strong style="color:#0F6E56;">صِدْق Sidq (Truthfulness):</strong> Speak with clarity — truth lights the path of integrity.
+    </li>
+    <li style="margin-bottom:14px; padding:18px; background:#E1F5EE; border-radius:8px;">
+      <strong style="color:#0F6E56;">إِحْسَان Ihsan (Excellence):</strong> Strive for beauty — excellence transforms effort into worship.
+    </li>
+    <li style="margin-bottom:14px; padding:18px; background:#E1F5EE; border-radius:8px;">
+      <strong style="color:#0F6E56;">مَسْؤُولِيَّة Accountability:</strong> Stand transparent — responsibility strengthens faith and unity.
+    </li>
+  </ul>
+</section>
+
+<!-- RESOURCES SECTION -->
+<section id="resources" style="text-align:center; padding:60px 20px; background:#f9f9f9;">
+  <h2 style="color:gold; font-family:'Playfair Display', serif;">📚 Resources</h2>
+  <p style="max-width:700px; margin:auto; font-size:18px; line-height:1.8;">
+    Download guides and toolkits from <strong>Ummah Beacon</strong>.
+  </p>
+
+  <div style="margin-top:30px;">
+    <!-- First PDF -->
+    <a href="halal-digital-launch-checklist.pdf" target="_blank"
+       style="display:inline-block; margin:10px; background-color:gold; color:#111;
+              font-weight:bold; padding:12px 24px; border-radius:6px;
+              text-decoration:none; box-shadow:0 0 8px rgba(255,215,0,0.5);">
+      📘 Halal Digital Launch Checklist
+    </a>
+
+    <!-- Second html -->
+    <a href="halal_digital_checklist.html" target="_blank"
+       style="display:inline-block; margin:10px; background-color:gold; color:#111;
+              font-weight:bold; padding:12px 24px; border-radius:6px;
+              text-decoration:none; box-shadow:0 0 8px rgba(255,215,0,0.5);">
+      📗 Halal Digital Checklist
+    </a>
+
+    <!-- Third PDF -->
+    <a href="10_Halal_Business_Quotes_Ummah_Beacon.pdf" target="_blank"
+       style="display:inline-block; margin:10px; background-color:gold; color:#111;
+              font-weight:bold; padding:12px 24px; border-radius:6px;
+              text-decoration:none; box-shadow:0 0 8px rgba(255,215,0,0.5);">
+      📜 10 Halal Business Quotes
+    </a>
+  </div>
+</section>
+   
+<!-- DIGITAL RESOURCES / EBOOKS -->
+<section id="resources" style="background-color:#f9f9f9; padding:60px 40px;">
+  <div style="max-width:1100px; margin:auto;">
+    <div style="font-size:.78rem; font-weight:700; letter-spacing:.15em; text-transform:uppercase; color:#0F6E56; margin-bottom:10px;">Digital Resources</div>
+    <h2 style="font-size:2rem; font-weight:700; margin-bottom:10px; color:#1a1a1a;">Ebooks & Downloadable Guides</h2>
+    <p style="color:#555; font-size:1rem; margin-bottom:36px;">Carefully written resources you can read, share, and benefit from — in PDF and Word formats.</p>
+
+    <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:20px;">
+
+      <!-- Amanah in Leadership -->
+      <div style="background:#fff; border:1px solid #e0e0d8; border-radius:10px; overflow:hidden;">
+        <div style="height:130px; background:linear-gradient(135deg,#0F6E56,#1D9E75); display:flex; align-items:center; justify-content:center; padding:20px;">
+          <div style="color:#fff; font-size:.95rem; font-weight:700; text-align:center; line-height:1.4;">The Muslim Leader's Guide to Amanah & Integrity</div>
+        </div>
+        <div style="padding:16px;">
+          <h3 style="font-size:.95rem; font-weight:700; margin-bottom:6px;">Amanah in Leadership</h3>
+          <p style="font-size:.85rem; color:#555; margin-bottom:12px;">How Islamic trust principles transform the way you lead — at home, at work, and in your community.</p>
+          <a href="https://drive.google.com/file/d/1uaJmqEWuMY8sYjGMgkqDDcuRUiE_w41v/view?usp=drive_link"
+             target="_blank"
+             style="display:inline-block;background:#0F6E56;color:#fff;padding:8px 18px;border-radius:5px;font-size:.85rem;font-weight:700;">
+            📥 Get Free PDF
+          </a>
+        </div>
+      </div>
+
+      <!-- Unity in the Ummah -->
+      <div style="background:#fff; border:1px solid #e0e0d8; border-radius:10px; overflow:hidden;">
+        <div style="height:130px; background:linear-gradient(135deg,#633806,#BA7517); display:flex; align-items:center; justify-content:center; padding:20px;">
+          <div style="color:#fff; font-size:.95rem; font-weight:700; text-align:center; line-height:1.4;">Spreading Love & Unity in the Muslim Ummah</div>
+        </div>
+        <div style="padding:16px;">
+          <h3 style="font-size:.95rem; font-weight:700; margin-bottom:6px;">Unity in the Ummah</h3>
+          <p style="font-size:.85rem; color:#555; margin-bottom:12px;">A practical guide to overcoming division and building stronger Muslim communities based on Quran & Sunnah.</p>
+          <a href="https://wa.me/251911827900?text=Assalamu%20Alaikum!%20I%20would%20like%20to%20get%20the%20Unity%20in%20the%20Ummah%20ebook."
+             target="_blank"
+             style="display:inline-block;background:#888;color:#fff;padding:8px 18px;border-radius:5px;font-size:.85rem;font-weight:700;">
+            🔔 Coming Soon
+          </a>
+        </div>
+      </div>
+
+      <!-- Islamic Ethics for the Digital Age -->
+      <div style="background:#fff; border:1px solid #e0e0d8; border-radius:10px; overflow:hidden;">
+        <div style="height:130px; background:linear-gradient(135deg,#533AB7,#7F77DD); display:flex; align-items:center; justify-content:center; padding:20px;">
+          <div style="color:#fff; font-size:.95rem; font-weight:700; text-align:center; line-height:1.4;">Islamic Ethics for the Digital Age</div>
+        </div>
+        <div style="padding:16px;">
+          <h3 style="font-size:.95rem; font-weight:700; margin-bottom:6px;">Ethics in the Digital World</h3>
+          <p style="font-size:.85rem; color:#555; margin-bottom:12px;">How Muslims can navigate social media, business, and technology with full Islamic integrity.</p>
+          <a href="#subscribe"
+             style="display:inline-block;background:#0F6E56;color:#fff;padding:8px 18px;border-radius:5px;font-size:.85rem;font-weight:700;">
+            🔔 Subscribe to Access
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- COACHING -->
+<section id="coaching" class="motif-star" style="background-color:#fff; padding:40px; text-align:center;">
+  <h2 style="color:#0F6E56; font-size:1.8rem; margin-bottom:16px;">🤝 Coaching & Mentorship</h2>
+  <p style="font-size:17px; line-height:1.6; max-width:600px; margin:0 auto 24px; color:#555;">
+    Guidance for ethical leadership and purposeful living — tailored to uplift the Ummah.
+    From someone who has led nearly 4 million people with Amanah.
+  </p>
+  <ul style="max-width:550px; margin:0 auto 28px; list-style:none; padding:0;">
+    <li style="margin-bottom:12px; padding:16px; background:#f9f9f9; border-left:4px solid #0F6E56; border-radius:6px; text-align:left;">
+      <strong>🆓 Discovery Session:</strong> Free 30-min intro call — no obligation
+    </li>
+    <li style="margin-bottom:12px; padding:16px; background:#f9f9f9; border-left:4px solid #0F6E56; border-radius:6px; text-align:left;">
+      <strong>💡 Single Session:</strong> 60-min deep coaching —
+    </li>
+    <li style="margin-bottom:12px; padding:16px; background:#f9f9f9; border-left:4px solid #0F6E56; border-radius:6px; text-align:left;">
+      <strong>📦 Monthly Package:</strong> 4 sessions/month —
+    </li>
+  </ul>
+  <a href="https://wa.me/251911827900?text=Assalamu%20Alaikum%20Brother%20Yahya!%20I%20would%20like%20to%20book%20a%20coaching%20session."
+     target="_blank"
+     style="display:inline-flex;align-items:center;gap:8px;background:#25D366;color:#fff;padding:14px 28px;border-radius:7px;font-weight:700;font-size:1rem;">
+    💬 Book via WhatsApp
+  </a>
+</section>
+
+<!-- Subscription Section -->
+<div class="subscribe-container">
+  <div class="subscribe-box">
+    <h2>✨ Subscribe to Ummah Beacon ✨</h2>
+    <p>Join thousands of Muslims growing through Islamic knowledge.<br>
+       Receive weekly insights, guides, and reminders.</p>
+
+    <!-- Zoho Campaigns Embed -->
+    <div id="zohoForm">
+      <!-- Paste Zoho Campaigns embed code here -->
+    </div>
+
+    <small>Unsubscribe anytime 🤲</small>
+  </div>
+</div>
+  <p style="font-size:.82rem; color:#854F0B;">
+    Join thousands of Muslims growing through Islamic knowledge. Unsubscribe anytime. 🤲
+  </p>
+</section>
+
+<!-- TOAST -->
+<div id="toast" style="position:fixed;bottom:28px;right:28px;background:#0F6E56;color:#fff;padding:14px 22px;border-radius:8px;font-size:.95rem;font-weight:600;opacity:0;transform:translateY(14px);transition:all .3s;z-index:999;pointer-events:none;"></div>
+
+<script>
+function submitSub(){
+  const e=document.getElementById('sub-email').value.trim();
+  const t=document.getElementById('toast');
+  if(!e||!e.includes('@')){
+    t.textContent='Please enter a valid email address.';
+    t.style.opacity='1';t.style.transform='translateY(0)';
+    setTimeout(()=>{t.style.opacity='0';t.style.transform='translateY(14px)';},3500);
+    return;
+  }
+  t.textContent="Alhamdulillah! You've joined the Ummah Beacon community. Barakallahu feek! 🤲";
+  t.style.opacity='1';t.style.transform='translateY(0)';
+  setTimeout(()=>{t.style.opacity='0';t.style.transform='translateY(14px)';},4000);
+  document.getElementById('sub-email').value='';
+}
+</script>
+
+<!-- IDENTITY -->
+<section id="branding" style="background:linear-gradient(135deg,#043d2e,#0F6E56); text-align:center; padding:50px 20px; color:#fff;">
+  <h2 style="color:#FAC775; font-size:1.8rem; margin-bottom:12px;">🌟 Our Identity</h2>
+  <p style="color:#c5e8df; font-size:17px; max-width:600px; margin:0 auto 28px;">
+    Ummah Beacon reflects light, unity, and prosperity through Islamic heritage and modern vision.
+  </p>
+  <img src="yahya.jpg" alt="Founder Yahya Aliyyi" 
+       style="width:160px;height:160px;border-radius:50%;object-fit:cover;object-position:top;border:4px solid #FAC775;display:block;margin:0 auto 14px;"/>
+  <p style="font-weight:700; font-size:1.1rem; color:#FAC775;">Yahya Aliyyi</p>
+  <p style="color:#9FE1CB; font-size:.95rem;">Founder & Visionary Guide</p>
+  <p style="color:#9FE1CB; font-size:.85rem; margin-top:4px;">Former Zone Administrator | Jimma, Ethiopia 🇪🇹</p>
+</section>
+
+<!-- Elegant Footer -->
+<footer style="background-color:#111; color:gold; text-align:center; padding:40px 20px; margin-top:0; font-family:'Lato', sans-serif;">
+
+  <!-- Divider Line -->
+  <hr style="border:0; height:2px; background:#C8A75B; width:60%; margin:0 auto 25px auto;">
+
+  <!-- Title -->
+  <h2 style="margin:0; font-size:1.4rem; color:#C8A75B; letter-spacing:1px;">
+    🌙 Contact & Community
+  </h2>
+
+  <!-- Identity -->
+  <p style="margin:10px 0; font-size:1rem; font-weight:bold;">
+    Yahya Aliyyi — Founder, Ummah Beacon
+  </p>
+  <p style="margin:6px 0; font-size:.95rem;">
+    ✉️ <a href="mailto:yahya@ummahbeacon.com" style="color:gold; text-decoration:none;">yahya@ummahbeacon.com</a> | 
+    🌐 <a href="https://www.ummahbeacon.com" style="color:gold; text-decoration:none;">www.ummahbeacon.com</a>
+  </p>
+
+  <!-- Buttons -->
+  <div style="margin:20px 0; display:flex; justify-content:center; gap:15px; flex-wrap:wrap;">
+
+    <!-- WhatsApp Group -->
+    <a href="https://chat.whatsapp.com/CTbLLm1CDsHEgV2DvrSs5z" target="_blank" 
+       style="background:#25D366; color:white; padding:12px 24px; border-radius:8px; text-decoration:none; font-weight:bold; font-size:.95rem; box-shadow:0 0 8px rgba(200,167,91,0.6);">
+       💬 Join WhatsApp Group
+    </a>
+
+    <!-- Telegram Channel -->
+    <a href="https://t.me/+BmiXfv_vvxsxZjJk" target="_blank" 
+       style="background:#0088cc; color:white; padding:12px 24px; border-radius:8px; text-decoration:none; font-weight:bold; font-size:.95rem; box-shadow:0 0 8px rgba(200,167,91,0.6);">
+       📢 Join Telegram Channel
+    </a>
+
+  </div>
+
+  <!-- Tagline -->
+  <p style="margin-top:15px; font-size:.9rem; color:#888;">
+    🌙 "Light for the Muslim Ummah"
+  </p>
+
+  <!-- Copyright -->
+  <p style="margin-top:10px; font-size:.8rem; color:#666;">
+    © 2026 Ummah Beacon | Guided by Yahya Aliyyi
+  </p>
+</footer>
+</body>
+</html>
