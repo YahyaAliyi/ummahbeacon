@@ -1,242 +1,608 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ummah Beacon Library</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
-
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Ummah Beacon – Islamic Guides Library</title>
 <style>
-body{
-  margin:0;
-  font-family:'Lato',sans-serif;
-  background:#f8faf8;
-  color:#333;
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400;700;900&family=Amiri:wght@400;700&display=swap');
+
+:root {
+  --dg:   #1A472A;
+  --mg:   #2E7D52;
+  --lg:   #E8F5E9;
+  --gold: #D4AF37;
+  --lgd:  #F5E6A3;
+  --navy: #0B2B40;
+  --wht:  #FFFFFF;
+  --off:  #F7F6F0;
+  --txt:  #1C1C1C;
+  --shadow: 0 12px 40px rgba(0,0,0,0.18);
 }
 
-.hero{
-  background:linear-gradient(135deg,#043d2e,#0F6E56);
-  color:white;
-  text-align:center;
-  padding:90px 20px;
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Lato', sans-serif;
+  background: var(--off);
+  color: var(--txt);
+  min-height: 100vh;
 }
 
-.hero h1{
-  font-family:'Playfair Display',serif;
-  color:#FAC775;
-  font-size:3rem;
-  margin-bottom:20px;
+/* ── HERO HEADER ──────────────────────────────────────────── */
+.hero {
+  background: linear-gradient(150deg, var(--dg) 0%, var(--navy) 100%);
+  padding: 70px 24px 80px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='38' fill='none' stroke='%23D4AF37' stroke-width='0.4' opacity='0.12'/%3E%3Cpath d='M50 12 L54 38 L80 38 L58 54 L66 80 L50 64 L34 80 L42 54 L20 38 L46 38 Z' fill='none' stroke='%23D4AF37' stroke-width='0.3' opacity='0.08'/%3E%3C/svg%3E") repeat;
+  pointer-events: none;
+}
+.hero-inner { position: relative; z-index: 1; max-width: 760px; margin: 0 auto; }
+
+.hero-logo {
+  width: 90px; height: 90px;
+  background: rgba(212,175,55,0.15);
+  border: 3px solid var(--gold);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 42px;
+  margin: 0 auto 22px;
+  box-shadow: 0 0 30px rgba(212,175,55,0.25);
+}
+.hero h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(28px, 5vw, 52px);
+  color: var(--wht);
+  margin-bottom: 12px;
+  text-shadow: 0 2px 12px rgba(0,0,0,0.3);
+}
+.hero-sub {
+  font-size: clamp(14px, 2vw, 18px);
+  color: rgba(255,255,255,0.85);
+  margin-bottom: 10px;
+}
+.hero-tagline {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: clamp(14px, 1.8vw, 17px);
+  color: var(--gold);
+  margin-bottom: 32px;
+}
+.hero-bism {
+  font-family: 'Amiri', serif;
+  font-size: clamp(18px, 3vw, 26px);
+  color: var(--lgd);
+  opacity: 0.85;
 }
 
-.hero p{
-  max-width:800px;
-  margin:auto;
-  line-height:1.9;
+/* ── STATS BAR ────────────────────────────────────────────── */
+.stats {
+  background: var(--wht);
+  border-bottom: 3px solid var(--gold);
+  padding: 20px 24px;
+  display: flex;
+  justify-content: center;
+  gap: 0;
+  flex-wrap: wrap;
+}
+.stat {
+  padding: 10px 36px;
+  text-align: center;
+  border-right: 1px solid #e0e0d0;
+}
+.stat:last-child { border-right: none; }
+.stat-num {
+  font-family: 'Playfair Display', serif;
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--dg);
+  line-height: 1;
+}
+.stat-lbl {
+  font-size: 12px;
+  color: #888;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-top: 4px;
 }
 
-.container{
-  max-width:1200px;
-  margin:auto;
-  padding:70px 20px;
+/* ── SEARCH ───────────────────────────────────────────────── */
+.search-wrap {
+  max-width: 560px;
+  margin: 40px auto 0;
+  padding: 0 24px;
+}
+.search-box {
+  display: flex;
+  background: var(--wht);
+  border: 2px solid var(--gold);
+  border-radius: 40px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(26,71,42,0.1);
+}
+.search-box input {
+  flex: 1;
+  border: none;
+  outline: none;
+  padding: 14px 20px;
+  font-size: 15px;
+  font-family: 'Lato', sans-serif;
+  background: transparent;
+  color: var(--txt);
+}
+.search-box button {
+  background: var(--gold);
+  border: none;
+  padding: 14px 22px;
+  cursor: pointer;
+  font-size: 18px;
+  transition: background 0.2s;
+}
+.search-box button:hover { background: #c99f2e; }
+.search-box input:focus-visible, .search-box button:focus-visible, a:focus-visible { outline: 3px solid #0B2B40; outline-offset: 3px; }
+
+/* ── GRID ─────────────────────────────────────────────────── */
+.grid-section {
+  max-width: 1260px;
+  margin: 0 auto;
+  padding: 56px 24px 80px;
+}
+.grid-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 26px;
+  color: var(--dg);
+  margin-bottom: 32px;
+  padding-bottom: 12px;
+  border-bottom: 2px solid var(--gold);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.guides-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 28px;
 }
 
-.grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
-  gap:35px;
+/* ── CARD ─────────────────────────────────────────────────── */
+.card {
+  background: var(--wht);
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 6px 24px rgba(0,0,0,0.10);
+  transition: transform 0.28s ease, box-shadow 0.28s ease;
+  display: flex;
+  flex-direction: column;
+}
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 18px 48px rgba(0,0,0,0.18);
+}
+.card-cover {
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  padding: 24px;
+}
+.card-cover::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60' viewBox='0 0 60 60'%3E%3Ccircle cx='30' cy='30' r='22' fill='none' stroke='rgba(255,255,255,0.12)' stroke-width='1'/%3E%3C/svg%3E") repeat;
+}
+.card-num {
+  position: absolute;
+  top: 14px; right: 14px;
+  background: rgba(255,255,255,0.2);
+  color: white;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  padding: 4px 10px;
+  border-radius: 12px;
+  backdrop-filter: blur(4px);
+}
+.card-icon { font-size: 44px; margin-bottom: 12px; filter: drop-shadow(0 2px 6px rgba(0,0,0,0.2)); }
+.card-cover-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 16px;
+  color: white;
+  text-align: center;
+  line-height: 1.3;
+  font-weight: 700;
+  position: relative;
+  z-index: 1;
+  text-shadow: 0 1px 4px rgba(0,0,0,0.3);
 }
 
-.card{
-  background:white;
-  border-radius:18px;
-  overflow:hidden;
-  box-shadow:0 12px 30px rgba(0,0,0,.08);
+.card-body {
+  padding: 20px 22px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+.card-desc {
+  font-size: 14px;
+  color: #666;
+  line-height: 1.6;
+  flex: 1;
+  margin-bottom: 18px;
+}
+.card-tag {
+  display: inline-block;
+  background: var(--lg);
+  color: var(--mg);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  padding: 3px 10px;
+  border-radius: 10px;
+  margin-bottom: 14px;
+}
+.card-btns {
+  display: flex;
+  gap: 10px;
+}
+.btn {
+  flex: 1;
+  padding: 11px 10px;
+  border: none;
+  border-radius: 10px;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  transition: all 0.22s;
+  font-family: 'Lato', sans-serif;
+}
+.btn-pdf {
+  background: var(--gold);
+  color: var(--dg);
+}
+.btn-pdf:hover { background: #c99f2e; transform: scale(1.04); }
+.btn-ebook {
+  background: var(--dg);
+  color: white;
+}
+.btn-ebook:hover { background: var(--mg); transform: scale(1.04); }
+
+/* ── FOOTER ───────────────────────────────────────────────── */
+.footer {
+  background: var(--dg);
+  color: var(--lgd);
+  text-align: center;
+  padding: 40px 24px;
+  font-size: 14px;
+}
+.footer strong { color: var(--gold); }
+.footer p { margin: 6px 0; opacity: 0.85; }
+.footer-divider {
+  width: 80px; height: 2px;
+  background: var(--gold);
+  margin: 18px auto;
+  border-radius: 1px;
 }
 
-.card-top{
-  padding:45px;
-  text-align:center;
-  color:white;
+/* ── ANIMATIONS ───────────────────────────────────────────── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.card { animation: fadeUp 0.5s ease both; }
+.card:nth-child(1)  { animation-delay: 0.05s; }
+.card:nth-child(2)  { animation-delay: 0.10s; }
+.card:nth-child(3)  { animation-delay: 0.15s; }
+.card:nth-child(4)  { animation-delay: 0.20s; }
+.card:nth-child(5)  { animation-delay: 0.25s; }
+.card:nth-child(6)  { animation-delay: 0.30s; }
+.card:nth-child(7)  { animation-delay: 0.35s; }
+.card:nth-child(8)  { animation-delay: 0.40s; }
+.card:nth-child(9)  { animation-delay: 0.45s; }
+.card:nth-child(10) { animation-delay: 0.50s; }
+
+/* ── HIDE on search ───────────────────────────────────────── */
+.card.hidden { display: none; }
+
+@media (max-width: 600px) {
+  .stats { flex-direction: column; align-items: center; }
+  .stat  { border-right: none; border-bottom: 1px solid #e0e0d0; padding: 12px 24px; }
+  .stat:last-child { border-bottom: none; }
+  .guides-grid { grid-template-columns: 1fr; }
 }
 
-.green{
-  background:linear-gradient(135deg,#0F6E56,#1D9E75);
-}
-
-.gold{
-  background:linear-gradient(135deg,#8B5A00,#D4A017);
-}
-
-.purple{
-  background:linear-gradient(135deg,#533AB7,#7F77DD);
-}
-
-.card-body{
-  padding:35px;
-}
-
-.card-body ul{
-  line-height:2;
-  color:#555;
-}
-
-.btn{
-  display:inline-block;
-  margin-top:25px;
-  padding:14px 28px;
-  border-radius:8px;
-  text-decoration:none;
-  font-weight:bold;
-}
-
-.btn-green{
-  background:#0F6E56;
-  color:white;
-}
-
-.btn-gold{
-  background:#D4A017;
-  color:#222;
-}
-
-.btn-purple{
-  background:#7F77DD;
-  color:white;
-}
-
-footer{
-  background:#111;
-  color:gold;
-  text-align:center;
-  padding:40px 20px;
-}
+.home-link{display:inline-block;margin-top:22px;color:var(--gold);font-weight:700;font-size:14px;border:1.5px solid rgba(212,175,55,.5);padding:8px 18px;border-radius:24px;text-decoration:none;transition:all .2s}
+.home-link:hover{background:var(--gold);color:var(--dg)}
+.more-sec{max-width:1260px;margin:0 auto;padding:0 24px 56px}
+.more-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:22px}
+.more-card{background:#fff;border-radius:16px;padding:24px;box-shadow:0 6px 24px rgba(0,0,0,.10);border-top:5px solid var(--gold);display:flex;flex-direction:column;transition:transform .25s}
+.more-card:hover{transform:translateY(-6px)}
+.more-card h3{font-family:'Playfair Display',serif;color:var(--dg);font-size:18px;margin-bottom:8px}
+.more-card p{font-size:14px;color:#666;line-height:1.6;flex:1;margin-bottom:16px}
+.soon-sec{max-width:1260px;margin:0 auto;padding:0 24px 70px;display:grid;grid-template-columns:1fr 1fr;gap:22px}
+.soon{background:linear-gradient(150deg,var(--dg),var(--navy));color:#fff;border-radius:18px;padding:30px}
+.soon h3{font-family:'Playfair Display',serif;color:var(--gold);font-size:20px;margin-bottom:6px}
+.soon .tag{display:inline-block;background:rgba(212,175,55,.18);color:var(--lgd);font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:3px 12px;border-radius:12px;margin-bottom:14px}
+.soon ul{list-style:none;margin:0 0 18px}
+.soon li{padding:6px 0 6px 20px;position:relative;font-size:14.5px;color:rgba(255,255,255,.85)}
+.soon li:before{content:'';position:absolute;left:2px;top:14px;width:7px;height:7px;background:var(--gold);transform:rotate(45deg)}
+.soon a{display:inline-block;background:var(--gold);color:var(--dg);font-weight:700;font-size:13px;padding:10px 20px;border-radius:10px;text-decoration:none}
+@media(max-width:700px){.soon-sec{grid-template-columns:1fr}}
 </style>
 </head>
-
 <body>
 
-<div class="hero">
-  <h1>📚 The Ummah Beacon Library</h1>
+<!-- ── HERO ── -->
+<header class="hero">
+  <div class="hero-inner">
+    <div class="hero-logo">🕌</div>
+    <h1>Ummah Beacon</h1>
+    <p class="hero-sub">Islamic Guides &amp; Resources Library</p>
+    <p class="hero-tagline">"Becoming Light for the Muslim Ummah"</p>
+    <a class="home-link" href="index.html">&larr; Back to Homepage</a>
+    <p class="hero-bism" style="margin-top:22px">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</p>
+  </div>
+</header>
 
-  <p>
-    Beneficial knowledge made available for the sake of Allah and the service of the Muslim Ummah.
-    Carefully prepared resources, guides, ebooks, and educational materials designed to inspire faith,
-    leadership, ethical business, and excellence.
+<!-- ── STATS ── -->
+<div class="stats">
+  <div class="stat"><div class="stat-num">10</div><div class="stat-lbl">Comprehensive Guides</div></div>
+  <div class="stat"><div class="stat-num">170</div><div class="stat-lbl">Pages of Content</div></div>
+  <div class="stat"><div class="stat-num">20</div><div class="stat-lbl">PDF &amp; E-Book Formats</div></div>
+  <div class="stat"><div class="stat-num">100%</div><div class="stat-lbl">Free &amp; Shareable</div></div>
+</div>
+
+<!-- ── SEARCH ── -->
+<div class="search-wrap">
+  <div class="search-box">
+    <input type="search" id="searchInput" aria-label="Search guides" aria-controls="guidesGrid" placeholder="Search guides… e.g. Zakat, Parenting, Business" oninput="filterCards()"/>
+    <button type="button" aria-label="Search guides" onclick="filterCards()">🔍</button>
+  </div>
+</div>
+
+<!-- ── GRID ── -->
+<section class="grid-section">
+  <h2 class="grid-title">📚 All Guides</h2>
+  <div class="guides-grid" id="guidesGrid">
+
+    <!-- Card 1 -->
+    <div class="card" data-tags="business ethics commerce trade halal">
+      <div class="card-cover" style="background:linear-gradient(135deg,#1A472A,#0B3320);">
+        <span class="card-num">01</span>
+        <div class="card-icon">🤝</div>
+        <div class="card-cover-title">Islamic Business Ethics</div>
+      </div>
+      <div class="card-body">
+        <span class="card-tag">Business</span>
+        <p class="card-desc">Master the principles of ethical business according to Islamic Shariah. Conduct honest, transparent, and blessed trade that pleases Allah.</p>
+        <div class="card-btns">
+          <a href="guide-01-islamic-business-ethics.pdf" class="btn btn-pdf" download>📄 PDF</a>
+          <a href="guide-01-ebook.html" class="btn btn-ebook">📖 E-Book</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 2 -->
+    <div class="card" data-tags="finance money investment zakat wealth halal">
+      <div class="card-cover" style="background:linear-gradient(135deg,#1B5E20,#2E7D32);">
+        <span class="card-num">02</span>
+        <div class="card-icon">💰</div>
+        <div class="card-cover-title">Halal Financial Literacy</div>
+      </div>
+      <div class="card-body">
+        <span class="card-tag">Finance</span>
+        <p class="card-desc">Build wealth the Islamic way. Understand halal investing, Zakat, and financial planning rooted in the Quran and Sunnah.</p>
+        <div class="card-btns">
+          <a href="guide-02-halal-financial-literacy.pdf" class="btn btn-pdf" download>📄 PDF</a>
+          <a href="guide-02-ebook.html" class="btn btn-ebook">📖 E-Book</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 3 -->
+    <div class="card" data-tags="family marriage children home values">
+      <div class="card-cover" style="background:linear-gradient(135deg,#880E4F,#AD1457);">
+        <span class="card-num">03</span>
+        <div class="card-icon">🏡</div>
+        <div class="card-cover-title">Islamic Family Values</div>
+      </div>
+      <div class="card-body">
+        <span class="card-tag">Family</span>
+        <p class="card-desc">Strengthen family bonds rooted in Islamic principles. Build a household filled with mercy, love, and the guidance of the Quran.</p>
+        <div class="card-btns">
+          <a href="guide-03-islamic-family-values.pdf" class="btn btn-pdf" download>📄 PDF</a>
+          <a href="guide-03-ebook.html" class="btn btn-ebook">📖 E-Book</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 4 -->
+    <div class="card" data-tags="character akhlaq virtue ethics development">
+      <div class="card-cover" style="background:linear-gradient(135deg,#4A148C,#6A1B9A);">
+        <span class="card-num">04</span>
+        <div class="card-icon">✨</div>
+        <div class="card-cover-title">Character Development</div>
+      </div>
+      <div class="card-body">
+        <span class="card-tag">Character</span>
+        <p class="card-desc">Develop the akhlaq of the Prophet ﷺ. Transform yourself into a beacon of light through spiritual growth and self-discipline.</p>
+        <div class="card-btns">
+          <a href="guide-04-islamic-character-development.pdf" class="btn btn-pdf" download>📄 PDF</a>
+          <a href="guide-04-ebook.html" class="btn btn-ebook">📖 E-Book</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 5 -->
+    <div class="card" data-tags="community service volunteer charity ummah">
+      <div class="card-cover" style="background:linear-gradient(135deg,#0D47A1,#1565C0);">
+        <span class="card-num">05</span>
+        <div class="card-icon">🤲</div>
+        <div class="card-cover-title">Community Service</div>
+      </div>
+      <div class="card-body">
+        <span class="card-tag">Community</span>
+        <p class="card-desc">Make a difference in your community. Learn how to serve others and build strong, compassionate communities as an act of ibadah.</p>
+        <div class="card-btns">
+          <a href="guide-05-community-service.pdf" class="btn btn-pdf" download>📄 PDF</a>
+          <a href="guide-05-ebook.html" class="btn btn-ebook">📖 E-Book</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 6 -->
+    <div class="card" data-tags="zakat charity wealth purification obligatory">
+      <div class="card-cover" style="background:linear-gradient(135deg,#E65100,#F57C00);">
+        <span class="card-num">06</span>
+        <div class="card-icon">⚖️</div>
+        <div class="card-cover-title">Zakat Guide</div>
+      </div>
+      <div class="card-body">
+        <span class="card-tag">Zakat</span>
+        <p class="card-desc">Master the Islamic obligation of Zakat. Learn how to calculate and distribute charity to purify your wealth and help the needy.</p>
+        <div class="card-btns">
+          <a href="guide-06-zakat-guide.pdf" class="btn btn-pdf" download>📄 PDF</a>
+          <a href="guide-06-ebook.html" class="btn btn-ebook">📖 E-Book</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 7 -->
+    <div class="card" data-tags="parenting children raising kids education islamic">
+      <div class="card-cover" style="background:linear-gradient(135deg,#006064,#00838F);">
+        <span class="card-num">07</span>
+        <div class="card-icon">👨‍👩‍👧‍👦</div>
+        <div class="card-cover-title">Islamic Parenting</div>
+      </div>
+      <div class="card-body">
+        <span class="card-tag">Parenting</span>
+        <p class="card-desc">Raise righteous, compassionate, disciplined, and faithful children using the Prophet's ﷺ approach to parenting.</p>
+        <div class="card-btns">
+          <a href="guide-07-islamic-parenting.pdf" class="btn btn-pdf" download>📄 PDF</a>
+          <a href="guide-07-ebook.html" class="btn btn-ebook">📖 E-Book</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 8 -->
+    <div class="card" data-tags="dua dhikr prayer remembrance adhkar spiritual">
+      <div class="card-cover" style="background:linear-gradient(135deg,#558B2F,#689F38);">
+        <span class="card-num">08</span>
+        <div class="card-icon">🌙</div>
+        <div class="card-cover-title">Daily Duas &amp; Practices</div>
+      </div>
+      <div class="card-body">
+        <span class="card-tag">Duas</span>
+        <p class="card-desc">Connect with Allah daily. Learn essential duas and spiritual practices to strengthen your faith and find peace in all circumstances.</p>
+        <div class="card-btns">
+          <a href="guide-08-daily-duas.pdf" class="btn btn-pdf" download>📄 PDF</a>
+          <a href="guide-08-daily-duas.html" class="btn btn-ebook">📖 E-Book</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 9 -->
+    <div class="card" data-tags="negotiation business deal contract ethics fair">
+      <div class="card-cover" style="background:linear-gradient(135deg,#BF360C,#D84315);">
+        <span class="card-num">09</span>
+        <div class="card-icon">🗣️</div>
+        <div class="card-cover-title">Business Negotiation Ethics</div>
+      </div>
+      <div class="card-body">
+        <span class="card-tag">Negotiation</span>
+        <p class="card-desc">Negotiate with integrity. Master Islamic principles of fair dealing and ethical negotiation for blessed and lasting agreements.</p>
+        <div class="card-btns">
+          <a href="guide-09-business-negotiation.pdf" class="btn btn-pdf" download>📄 PDF</a>
+          <a href="guide-09-ebook.html" class="btn btn-ebook">📖 E-Book</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 10 -->
+    <div class="card" data-tags="ramadan fasting quran laylatul qadr eid iftar">
+      <div class="card-cover" style="background:linear-gradient(135deg,#1A237E,#283593);">
+        <span class="card-num">10</span>
+        <div class="card-icon">🌛</div>
+        <div class="card-cover-title">Ramadan Guide</div>
+      </div>
+      <div class="card-body">
+        <span class="card-tag">Ramadan</span>
+        <p class="card-desc">Maximise the holy month. Spiritually transform during Ramadan and carry its blessings through the entire year insha'Allah.</p>
+        <div class="card-btns">
+          <a href="guide-10-ramadan-guide.pdf" class="btn btn-pdf" download>📄 PDF</a>
+          <a href="guide-10-ebook.html" class="btn btn-ebook">📖 E-Book</a>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /guides-grid -->
+
+  <!-- no results -->
+  <p id="noResults" aria-live="polite" style="display:none;text-align:center;color:#888;margin-top:40px;font-size:16px;">
+    No guides found for "<span id="noResultsTerm"></span>". Try a different keyword.
   </p>
-</div>
 
-<div class="container">
+</section>
 
-<div class="grid">
-  <div class="card">
+<!-- ── MORE FREE RESOURCES (kept from the previous library page) ── -->
+<section class="more-sec">
+  <h2 class="grid-title">📘 More Free Resources</h2>
+  <div class="more-grid">
+    <div class="more-card"><h3>Halal Digital Launch Checklist</h3><p>A practical, free PDF for an ethical digital-business launch.</p><div class="card-btns"><a href="halal-digital-launch-checklist.pdf" class="btn btn-pdf" download>📄 PDF</a></div></div>
+    <div class="more-card"><h3>The Barakah Blueprint</h3><p>A free PDF guide from Ummah Beacon.</p><div class="card-btns"><a href="the-barakah-blueprint.pdf" class="btn btn-pdf" download>📄 PDF</a></div></div>
+    <div class="more-card"><h3>Amanah in Leadership</h3><p>A practical guide to trustworthy leadership across family, community, public life, and business.</p><div class="card-btns"><a href="amanah-in-leadership.pdf" class="btn btn-pdf" download>📄 PDF</a></div></div>
+    <div class="more-card"><h3>Amanah in Everyday Work</h3><p>A practical guide to honoring trust at work through honesty, care, fairness, and making things right.</p><div class="card-btns"><a href="amanah-in-everyday-work.pdf" class="btn btn-pdf" download>📄 PDF</a></div></div>
+  </div>
+</section>
+<section class="soon-sec">
+  <div class="soon"><span class="tag">Coming Soon</span><h3>⭐ Premium Learning Library</h3><ul><li>Becoming the Light for the Ummah</li><li>Islamic Ethics for the Digital Age</li><li>Leadership Masterclass</li><li>Future Courses &amp; Workbooks</li></ul><a href="index.html#contact">Contact us</a></div>
+  <div class="soon"><span class="tag">Future</span><h3>🚀 Future Digital Academy</h3><ul><li>Video Courses</li><li>Audio Lessons</li><li>Toolkits &amp; Templates</li><li>Community Learning</li><li>Certification Programs</li></ul><a href="index.html#subscribe">Get Academy Updates</a></div>
+</section>
 
-<div class="card-top green">
-<h2>📘 Free Knowledge Library</h2>
-<p>Explore free guides and checklists.</p>
-</div>
-
-<div class="card-body">
-
-<ul>
-<li>Leadership & Amanah Guides</li>
-<li>Business Ethics Resources</li>
-<li>Islamic Productivity Templates</li>
-<li>Community Development Materials</li>
-<li>Personal Growth PDFs</li>
-</ul>
-
-<a class="btn btn-green"
-href="halal-digital-launch-checklist.pdf">
-📥 Download the checklist
-</a>
-
-<a class="btn btn-green"
-href="the-barakah-blueprint.pdf">
-📘 Read The Barakah Blueprint (PDF)
-</a>
-
-<p>A practical guide to trustworthy leadership across family, community, public life, and business.</p>
-
-<a class="btn btn-green"
-href="amanah-in-leadership.pdf">
-📘 Read Amanah in Leadership (PDF)
-</a>
-
-<p>A practical guide to honoring trust at work through honesty, care, fairness, and making things right.</p>
-
-<a class="btn btn-green"
-href="amanah-in-everyday-work.pdf">
-📘 Read Amanah in Everyday Work (PDF)
-</a>
-
-</div>
-</div>
-<div class="card">
-
-<div class="card-top gold">
-<h2>⭐ Premium Learning Library — Coming Soon</h2>
-<p>Future learning resources; details to come.</p>
-</div>
-
-<div class="card-body">
-
-<ul>
-<li>Becoming the Light for the Ummah</li>
-<li>Islamic Ethics for the Digital Age</li>
-<li>Leadership Masterclass</li>
-<li>Future Courses & Workbooks</li>
-</ul>
-
-<a class="btn btn-gold"
-href="index.html#contact">
-Contact us
-</a>
-
-</div>
-</div>
-<div class="card">
-
-<div class="card-top purple">
-<h2>🚀 Future Digital Academy</h2>
-<p>A global Islamic learning platform.</p>
-</div>
-
-<div class="card-body">
-
-<ul>
-<li>Video Courses</li>
-<li>Audio Lessons</li>
-<li>Toolkits & Templates</li>
-<li>Community Learning</li>
-<li>Certification Programs</li>
-</ul>
-
-<a class="btn btn-purple"
-href="index.html#subscribe">
-Join Waiting List
-</a>
-
-</div>
-</div>
-</div>
-</div>
-
-<footer>
-
-<h3>🌙 Light for the Muslim Ummah</h3>
-
-<p>
-May Allah place barakah in this work and allow it to benefit generations to come.
-</p>
-
-<p>
-<a href="index.html" style="color:gold;">
-🏠 Return to Homepage
-</a>
-</p>
-
+<!-- ── FOOTER ── -->
+<footer class="footer">
+  <p><a href="index.html" style="color:var(--gold);font-weight:700;text-decoration:none">🏠 Return to Homepage</a></p>
+  <strong>Ummah Beacon</strong> — Becoming Light for the Muslim Ummah
+  <div class="footer-divider"></div>
+  <p>All resources are free and available for sharing with your community</p>
+  <p style="margin-top:12px;font-size:12px;opacity:0.65;">
+    © 2025 Ummah Beacon · ummahbeacon.com · Dedicated to serving the Muslim Ummah
+  </p>
 </footer>
 
+<script>
+function filterCards() {
+  var q = document.getElementById('searchInput').value.trim().toLowerCase();
+  var cards = document.querySelectorAll('.card');
+  var visible = 0;
+  cards.forEach(function(c) {
+    var tags = c.getAttribute('data-tags') || '';
+    var title = c.querySelector('.card-cover-title').textContent.toLowerCase();
+    var desc  = c.querySelector('.card-desc').textContent.toLowerCase();
+    var match = !q || tags.includes(q) || title.includes(q) || desc.includes(q);
+    c.classList.toggle('hidden', !match);
+    if (match) visible++;
+  });
+  var nr = document.getElementById('noResults');
+  nr.style.display = (visible === 0 && q) ? 'block' : 'none';
+  document.getElementById('noResultsTerm').textContent = q;
+}
+document.getElementById('searchInput').addEventListener('keydown', function(e){
+  if (e.key === 'Enter') filterCards();
+});
+</script>
 </body>
 </html>
